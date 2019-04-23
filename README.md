@@ -15,3 +15,6 @@ alt.Chart(iris).mark_point().encode(
     color='species'
 )
 ```
+Here is image
+
+Cars.png![Altair Visualization](https://github.com/dvgnaveenkumarreddy/datavisualization/master/cars.png)
