@@ -18,4 +18,5 @@ alt.Chart(iris).mark_point().encode(
 Here is image
 
 Cars.png!
-(https://github.com/dvgnaveenkumarreddy/datavisualization/blob/master/Cars.png|alt=octocat)
+![Altair Visualization](https://github.com/dvgnaveenkumarreddy/datavisualization/blob/master/Cars.png)
+
