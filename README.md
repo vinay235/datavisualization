@@ -18,4 +18,4 @@ alt.Chart(iris).mark_point().encode(
 Here is image
 
 Cars.png!
-<img src="atavisualization/cars.png" alt="hi" class="inline"/>
+<img src="datavisualization/cars.png" alt="hi" class="inline"/>
