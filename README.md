@@ -17,4 +17,4 @@ alt.Chart(iris).mark_point().encode(
 ```
 Here is image
 
-Cars.png![Altair Visualization](https://github.com/dvgnaveenkumarreddy/datavisualization/master/cars.png)
+Cars.png![Altair Visualization](https://github.com/dvgnaveenkumarreddy/datavisualization/cars.png)
