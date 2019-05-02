@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@4"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+      var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"layer": [{"data": {"name": "data-64cec7a16e12c0b917dcf52fc377da82"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "legend": {"title": "Total Records"}, "scale": {"scheme": "greenblue"}}, "x": {"type": "quantitative", "bin": true, "field": "nkill"}, "y": {"type": "quantitative", "bin": true, "field": "nwound"}}}, {"data": {"name": "data-64cec7a16e12c0b917dcf52fc377da82"}, "mark": "point", "encoding": {"color": {"value": "grey"}, "size": {"type": "quantitative", "aggregate": "count", "legend": {"title": "Records in Selection"}}, "x": {"type": "quantitative", "bin": true, "field": "nkill"}, "y": {"type": "quantitative", "bin": true, "field": "nwound"}}, "transform": [{"filter": {"selection": "selector017"}}]}]}, {"data": {"name": "data-64cec7a16e12c0b917dcf52fc377da82"}, "mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector017"}, "value": "grey"}, "x": {"type": "nominal", "field": "country_txt"}, "y": {"type": "quantitative", "field": "success"}}, "height": 200, "selection": {"selector017": {"type": "single", "encodings": ["x"]}}, "width": 800}], "resolve": {"legend": {"color": "independent", "size": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-64cec7a16e12c0b917dcf52fc377da82": [{"country_txt": "Sierra Leone", "success": 98, "nkill": 840, "nwound": 122}, {"country_txt": "Mexico", "success": 479, "nkill": 780, "nwound": 683}, {"country_txt": "Saudi Arabia", "success": 319, "nkill": 672, "nwound": 1666}, {"country_txt": "Cambodia", "success": 243, "nkill": 543, "nwound": 786}, {"country_txt": "France", "success": 2481, "nkill": 534, "nwound": 2516}, {"country_txt": "Argentina", "success": 714, "nkill": 490, "nwound": 755}, {"country_txt": "Italy", "success": 1392, "nkill": 420, "nwound": 1291}, {"country_txt": "Canada", "success": 75, "nkill": 365, "nwound": 146}, {"country_txt": "Tunisia", "success": 97, "nkill": 351, "nwound": 433}, {"country_txt": "Haiti", "success": 185, "nkill": 336, "nwound": 300}, {"country_txt": "Greece", "success": 1126, "nkill": 325, "nwound": 733}, {"country_txt": "Senegal", "success": 116, "nkill": 325, "nwound": 323}, {"country_txt": "Zaire", "success": 45, "nkill": 324, "nwound": 211}, {"country_txt": "Tajikistan", "success": 180, "nkill": 307, "nwound": 1109}, {"country_txt": "Honduras", "success": 286, "nkill": 307, "nwound": 240}, {"country_txt": "Morocco", "success": 33, "nkill": 292, "nwound": 200}, {"country_txt": "Georgia", "success": 192, "nkill": 278, "nwound": 392}, {"country_txt": "Djibouti", "success": 22, "nkill": 274, "nwound": 162}, {"country_txt": "Ivory Coast", "success": 67, "nkill": 268, "nwound": 171}, {"country_txt": "Azerbaijan", "success": 44, "nkill": 258, "nwound": 187}, {"country_txt": "Croatia", "success": 55, "nkill": 248, "nwound": 73}, {"country_txt": "Chile", "success": 2221, "nkill": 228, "nwound": 755}, {"country_txt": "Venezuela", "success": 246, "nkill": 227, "nwound": 247}, {"country_txt": "Namibia", "success": 147, "nkill": 220, "nwound": 406}, {"country_txt": "Rhodesia", "success": 80, "nkill": 217, "nwound": 158}, {"country_txt": "Guinea", "success": 21, "nkill": 213, "nwound": 57}, {"country_txt": "Brazil", "success": 237, "nkill": 203, "nwound": 160}, {"country_txt": "Republic of the Congo", "success": 35, "nkill": 182, "nwound": 54}, {"country_txt": "Liberia", "success": 32, "nkill": 177, "nwound": 36}, {"country_txt": "Zimbabwe", "success": 96, "nkill": 154, "nwound": 222}, {"country_txt": "Malaysia", "success": 86, "nkill": 152, "nwound": 101}, {"country_txt": "Burkina Faso", "success": 45, "nkill": 134, "nwound": 219}, {"country_txt": "Jordan", "success": 84, "nkill": 133, "nwound": 260}, {"country_txt": "United Arab Emirates", "success": 17, "nkill": 123, "nwound": 27}, {"country_txt": "Yugoslavia", "success": 179, "nkill": 119, "nwound": 281}, {"country_txt": "Ireland", "success": 139, "nkill": 117, "nwound": 31}, {"country_txt": "West Germany (FRG)", "success": 465, "nkill": 97, "nwound": 862}, {"country_txt": "Soviet Union", "success": 67, "nkill": 96, "nwound": 150}, {"country_txt": "Germany", "success": 659, "nkill": 84, "nwound": 683}, {"country_txt": "Kosovo", "success": 172, "nkill": 83, "nwound": 365}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+
+  </script>
+</body>
+</html>
