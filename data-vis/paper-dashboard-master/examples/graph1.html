@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #vis {
+          position: relative;
+          /* width: 400px; */
+          /* height: 500px;
+          bottom: 10px;
+          right: 0px; */
+          /* overflow-y:scroll */
+        }
+
+        #text{
+          position: relative;
+          /* width: 400px; */
+          /* height: 500px;
+          bottom: 10px; */
+          left: 30px;
+          right: 30px;
+          /* overflow-y:scroll */
+        }
+
+        #main{
+          position: fixed;
+          height: 500px;
+          bottom: 10px;
+          right: 10px;
+          overflow-y:scroll;
+        }
+      </style>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+          Data Visualization
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="./dashboard.html">
+              <!-- <i class="nc-icon nc-bank"></i> -->
+              <p>Introduction</p>
+            </a>
+          </li>
+          <li class="active" >
+            <a href="./graph1.html">
+              <!-- <i class="nc-icon nc-diamond"></i> -->
+              <p>Graph 1</p>
+            </a>
+          </li>
+          <li>
+            <a href="./graph2.html">
+              <!-- <i class="nc-icon nc-pin-3"></i> -->
+              <p>Graph 2</p>
+            </a>
+          </li>
+          <li>
+            <a href="./graph3.html">
+              <!-- <i class="nc-icon nc-bell-55"></i> -->
+              <p>graph 3</p>
+            </a>
+          </li>
+          <li>
+            <a href="./graph4.html">
+              <!-- <i class="nc-icon nc-single-02"></i> -->
+              <p>Graph 4</p>
+            </a>
+          </li>
+          <li>
+            <a href="./graph5.html">
+              <!-- <i class="nc-icon nc-tile-56"></i> -->
+              <p>Graph 5</p>
+            </a>
+          </li>
+          <li>
+            <a href="./graph6.html">
+              <!-- <i class="nc-icon nc-caps-small"></i> -->
+              <p>Graph 6</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="#pablo">Successful Strikes per year over different Attack types</a>
+          </div>
+          </div>
+        </nav>
+      </div>
+      
+  
+  
+  
+
+   Core JS Files   
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+      demo.initChartsPages();
+    });
+  </script>
+
+
+  <!-- Graph content-->
+
+  
+  <div id="main">
+  <div id="vis" class="content" >
+      <div class="container-fluid">
+          <script>
+              var spec = {"config": {"view": {"width": 400, "height": 300}}, "layer": [{"mark": {"type": "line", "interpolate": "basis"}, "encoding": {"color": {"type": "nominal", "field": "AttackType"}, "x": {"type": "nominal", "field": "year"}, "y": {"type": "quantitative", "field": "SuccessfulStrikes"}}}, {"mark": "point", "encoding": {"opacity": {"value": 0}, "x": {"type": "nominal", "field": "year"}}, "selection": {"selector015": {"type": "single", "nearest": true, "on": "mouseover", "fields": ["year"], "empty": "none"}}}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "AttackType"}, "opacity": {"condition": {"value": 1, "selection": "selector015"}, "value": 0}, "x": {"type": "nominal", "field": "year"}, "y": {"type": "quantitative", "field": "SuccessfulStrikes"}}}, {"mark": {"type": "rule", "color": "gray"}, "encoding": {"x": {"type": "nominal", "field": "year"}}, "transform": [{"filter": {"selection": "selector015"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "AttackType"}, "text": {"condition": {"type": "quantitative", "field": "SuccessfulStrikes", "selection": "selector015"}, "value": " "}, "x": {"type": "nominal", "field": "year"}, "y": {"type": "quantitative", "field": "SuccessfulStrikes"}}}], "data": {"name": "data-8e0869e9f89d03a6cf4d6540f2b1b883"}, "height": 500, "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-8e0869e9f89d03a6cf4d6540f2b1b883": [{"year": 1970, "AttackType": "Armed Assault", "SuccessfulStrikes": 56.0}, {"year": 1971, "AttackType": "Armed Assault", "SuccessfulStrikes": 41.0}, {"year": 1972, "AttackType": "Armed Assault", "SuccessfulStrikes": 59.0}, {"year": 1973, "AttackType": "Armed Assault", "SuccessfulStrikes": 54.0}, {"year": 1974, "AttackType": "Armed Assault", "SuccessfulStrikes": 46.0}, {"year": 1975, "AttackType": "Armed Assault", "SuccessfulStrikes": 80.0}, {"year": 1976, "AttackType": "Armed Assault", "SuccessfulStrikes": 121.0}, {"year": 1977, "AttackType": "Armed Assault", "SuccessfulStrikes": 244.0}, {"year": 1978, "AttackType": "Armed Assault", "SuccessfulStrikes": 233.0}, {"year": 1979, "AttackType": "Armed Assault", "SuccessfulStrikes": 426.0}, {"year": 1980, "AttackType": "Armed Assault", "SuccessfulStrikes": 567.0}, {"year": 1981, "AttackType": "Armed Assault", "SuccessfulStrikes": 682.0}, {"year": 1982, "AttackType": "Armed Assault", "SuccessfulStrikes": 659.0}, {"year": 1983, "AttackType": "Armed Assault", "SuccessfulStrikes": 848.0}, {"year": 1984, "AttackType": "Armed Assault", "SuccessfulStrikes": 816.0}, {"year": 1985, "AttackType": "Armed Assault", "SuccessfulStrikes": 655.0}, {"year": 1986, "AttackType": "Armed Assault", "SuccessfulStrikes": 586.0}, {"year": 1987, "AttackType": "Armed Assault", "SuccessfulStrikes": 778.0}, {"year": 1988, "AttackType": "Armed Assault", "SuccessfulStrikes": 911.0}, {"year": 1989, "AttackType": "Armed Assault", "SuccessfulStrikes": 1105.0}, {"year": 1990, "AttackType": "Armed Assault", "SuccessfulStrikes": 867.0}, {"year": 1991, "AttackType": "Armed Assault", "SuccessfulStrikes": 1253.0}, {"year": 1992, "AttackType": "Armed Assault", "SuccessfulStrikes": 1292.0}, {"year": 1994, "AttackType": "Armed Assault", "SuccessfulStrikes": 787.0}, {"year": 1995, "AttackType": "Armed Assault", "SuccessfulStrikes": 700.0}, {"year": 1996, "AttackType": "Armed Assault", "SuccessfulStrikes": 619.0}, {"year": 1997, "AttackType": "Armed Assault", "SuccessfulStrikes": 802.0}, {"year": 1998, "AttackType": "Armed Assault", "SuccessfulStrikes": 248.0}, {"year": 1999, "AttackType": "Armed Assault", "SuccessfulStrikes": 348.0}, {"year": 2000, "AttackType": "Armed Assault", "SuccessfulStrikes": 473.0}, {"year": 2001, "AttackType": "Armed Assault", "SuccessfulStrikes": 549.0}, {"year": 2002, "AttackType": "Armed Assault", "SuccessfulStrikes": 350.0}, {"year": 2003, "AttackType": "Armed Assault", "SuccessfulStrikes": 299.0}, {"year": 2004, "AttackType": "Armed Assault", "SuccessfulStrikes": 246.0}, {"year": 2005, "AttackType": "Armed Assault", "SuccessfulStrikes": 500.0}, {"year": 2006, "AttackType": "Armed Assault", "SuccessfulStrikes": 731.0}, {"year": 2007, "AttackType": "Armed Assault", "SuccessfulStrikes": 833.0}, {"year": 2008, "AttackType": "Armed Assault", "SuccessfulStrikes": 1061.0}, {"year": 2009, "AttackType": "Armed Assault", "SuccessfulStrikes": 1079.0}, {"year": 2010, "AttackType": "Armed Assault", "SuccessfulStrikes": 1089.0}, {"year": 2011, "AttackType": "Armed Assault", "SuccessfulStrikes": 1358.0}, {"year": 2012, "AttackType": "Armed Assault", "SuccessfulStrikes": 1999.0}, {"year": 2013, "AttackType": "Armed Assault", "SuccessfulStrikes": 2774.0}, {"year": 2014, "AttackType": "Armed Assault", "SuccessfulStrikes": 3856.0}, {"year": 2015, "AttackType": "Armed Assault", "SuccessfulStrikes": 2951.0}, {"year": 2016, "AttackType": "Armed Assault", "SuccessfulStrikes": 2323.0}, {"year": 2017, "AttackType": "Armed Assault", "SuccessfulStrikes": 1991.0}, {"year": 1970, "AttackType": "Assassination", "SuccessfulStrikes": 18.0}, {"year": 1971, "AttackType": "Assassination", "SuccessfulStrikes": 65.0}, {"year": 1972, "AttackType": "Assassination", "SuccessfulStrikes": 181.0}, {"year": 1973, "AttackType": "Assassination", "SuccessfulStrikes": 156.0}, {"year": 1974, "AttackType": "Assassination", "SuccessfulStrikes": 145.0}, {"year": 1975, "AttackType": "Assassination", "SuccessfulStrikes": 166.0}, {"year": 1976, "AttackType": "Assassination", "SuccessfulStrikes": 181.0}, {"year": 1977, "AttackType": "Assassination", "SuccessfulStrikes": 119.0}, {"year": 1978, "AttackType": "Assassination", "SuccessfulStrikes": 218.0}, {"year": 1979, "AttackType": "Assassination", "SuccessfulStrikes": 425.0}, {"year": 1980, "AttackType": "Assassination", "SuccessfulStrikes": 518.0}, {"year": 1981, "AttackType": "Assassination", "SuccessfulStrikes": 319.0}, {"year": 1982, "AttackType": "Assassination", "SuccessfulStrikes": 303.0}, {"year": 1983, "AttackType": "Assassination", "SuccessfulStrikes": 299.0}, {"year": 1984, "AttackType": "Assassination", "SuccessfulStrikes": 371.0}, {"year": 1985, "AttackType": "Assassination", "SuccessfulStrikes": 270.0}, {"year": 1986, "AttackType": "Assassination", "SuccessfulStrikes": 323.0}, {"year": 1987, "AttackType": "Assassination", "SuccessfulStrikes": 411.0}, {"year": 1988, "AttackType": "Assassination", "SuccessfulStrikes": 707.0}, {"year": 1989, "AttackType": "Assassination", "SuccessfulStrikes": 853.0}, {"year": 1990, "AttackType": "Assassination", "SuccessfulStrikes": 741.0}, {"year": 1991, "AttackType": "Assassination", "SuccessfulStrikes": 582.0}, {"year": 1992, "AttackType": "Assassination", "SuccessfulStrikes": 898.0}, {"year": 1994, "AttackType": "Assassination", "SuccessfulStrikes": 612.0}, {"year": 1995, "AttackType": "Assassination", "SuccessfulStrikes": 625.0}, {"year": 1996, "AttackType": "Assassination", "SuccessfulStrikes": 405.0}, {"year": 1997, "AttackType": "Assassination", "SuccessfulStrikes": 380.0}, {"year": 1998, "AttackType": "Assassination", "SuccessfulStrikes": 17.0}, {"year": 1999, "AttackType": "Assassination", "SuccessfulStrikes": 37.0}, {"year": 2000, "AttackType": "Assassination", "SuccessfulStrikes": 84.0}, {"year": 2001, "AttackType": "Assassination", "SuccessfulStrikes": 91.0}, {"year": 2002, "AttackType": "Assassination", "SuccessfulStrikes": 52.0}, {"year": 2003, "AttackType": "Assassination", "SuccessfulStrikes": 74.0}, {"year": 2004, "AttackType": "Assassination", "SuccessfulStrikes": 78.0}, {"year": 2005, "AttackType": "Assassination", "SuccessfulStrikes": 198.0}, {"year": 2006, "AttackType": "Assassination", "SuccessfulStrikes": 122.0}, {"year": 2007, "AttackType": "Assassination", "SuccessfulStrikes": 122.0}, {"year": 2008, "AttackType": "Assassination", "SuccessfulStrikes": 129.0}, {"year": 2009, "AttackType": "Assassination", "SuccessfulStrikes": 125.0}, {"year": 2010, "AttackType": "Assassination", "SuccessfulStrikes": 196.0}, {"year": 2011, "AttackType": "Assassination", "SuccessfulStrikes": 173.0}, {"year": 2012, "AttackType": "Assassination", "SuccessfulStrikes": 298.0}, {"year": 2013, "AttackType": "Assassination", "SuccessfulStrikes": 452.0}, {"year": 2014, "AttackType": "Assassination", "SuccessfulStrikes": 537.0}, {"year": 2015, "AttackType": "Assassination", "SuccessfulStrikes": 549.0}, {"year": 2016, "AttackType": "Assassination", "SuccessfulStrikes": 510.0}, {"year": 2017, "AttackType": "Assassination", "SuccessfulStrikes": 480.0}, {"year": 1970, "AttackType": "Bombing", "SuccessfulStrikes": 268.0}, {"year": 1971, "AttackType": "Bombing", "SuccessfulStrikes": 212.0}, {"year": 1972, "AttackType": "Bombing", "SuccessfulStrikes": 163.0}, {"year": 1973, "AttackType": "Bombing", "SuccessfulStrikes": 130.0}, {"year": 1974, "AttackType": "Bombing", "SuccessfulStrikes": 267.0}, {"year": 1975, "AttackType": "Bombing", "SuccessfulStrikes": 352.0}, {"year": 1976, "AttackType": "Bombing", "SuccessfulStrikes": 388.0}, {"year": 1977, "AttackType": "Bombing", "SuccessfulStrikes": 569.0}, {"year": 1978, "AttackType": "Bombing", "SuccessfulStrikes": 598.0}, {"year": 1979, "AttackType": "Bombing", "SuccessfulStrikes": 957.0}, {"year": 1980, "AttackType": "Bombing", "SuccessfulStrikes": 860.0}, {"year": 1981, "AttackType": "Bombing", "SuccessfulStrikes": 975.0}, {"year": 1982, "AttackType": "Bombing", "SuccessfulStrikes": 1041.0}, {"year": 1983, "AttackType": "Bombing", "SuccessfulStrikes": 1123.0}, {"year": 1984, "AttackType": "Bombing", "SuccessfulStrikes": 1667.0}, {"year": 1985, "AttackType": "Bombing", "SuccessfulStrikes": 1351.0}, {"year": 1986, "AttackType": "Bombing", "SuccessfulStrikes": 1392.0}, {"year": 1987, "AttackType": "Bombing", "SuccessfulStrikes": 1365.0}, {"year": 1988, "AttackType": "Bombing", "SuccessfulStrikes": 1522.0}, {"year": 1989, "AttackType": "Bombing", "SuccessfulStrikes": 1647.0}, {"year": 1990, "AttackType": "Bombing", "SuccessfulStrikes": 1591.0}, {"year": 1991, "AttackType": "Bombing", "SuccessfulStrikes": 1836.0}, {"year": 1992, "AttackType": "Bombing", "SuccessfulStrikes": 1533.0}, {"year": 1994, "AttackType": "Bombing", "SuccessfulStrikes": 1004.0}, {"year": 1995, "AttackType": "Bombing", "SuccessfulStrikes": 701.0}, {"year": 1996, "AttackType": "Bombing", "SuccessfulStrikes": 1061.0}, {"year": 1997, "AttackType": "Bombing", "SuccessfulStrikes": 981.0}, {"year": 1998, "AttackType": "Bombing", "SuccessfulStrikes": 466.0}, {"year": 1999, "AttackType": "Bombing", "SuccessfulStrikes": 569.0}, {"year": 2000, "AttackType": "Bombing", "SuccessfulStrikes": 786.0}, {"year": 2001, "AttackType": "Bombing", "SuccessfulStrikes": 682.0}, {"year": 2002, "AttackType": "Bombing", "SuccessfulStrikes": 651.0}, {"year": 2003, "AttackType": "Bombing", "SuccessfulStrikes": 609.0}, {"year": 2004, "AttackType": "Bombing", "SuccessfulStrikes": 614.0}, {"year": 2005, "AttackType": "Bombing", "SuccessfulStrikes": 1003.0}, {"year": 2006, "AttackType": "Bombing", "SuccessfulStrikes": 1441.0}, {"year": 2007, "AttackType": "Bombing", "SuccessfulStrikes": 1788.0}, {"year": 2008, "AttackType": "Bombing", "SuccessfulStrikes": 2418.0}, {"year": 2009, "AttackType": "Bombing", "SuccessfulStrikes": 2435.0}, {"year": 2010, "AttackType": "Bombing", "SuccessfulStrikes": 2290.0}, {"year": 2011, "AttackType": "Bombing", "SuccessfulStrikes": 2337.0}, {"year": 2012, "AttackType": "Bombing", "SuccessfulStrikes": 4433.0}, {"year": 2013, "AttackType": "Bombing", "SuccessfulStrikes": 5801.0}, {"year": 2014, "AttackType": "Bombing", "SuccessfulStrikes": 7640.0}, {"year": 2015, "AttackType": "Bombing", "SuccessfulStrikes": 6479.0}, {"year": 2016, "AttackType": "Bombing", "SuccessfulStrikes": 5665.0}, {"year": 2017, "AttackType": "Bombing", "SuccessfulStrikes": 3869.0}, {"year": 1970, "AttackType": "Facility Attack", "SuccessfulStrikes": 157.0}, {"year": 1971, "AttackType": "Facility Attack", "SuccessfulStrikes": 78.0}, {"year": 1972, "AttackType": "Facility Attack", "SuccessfulStrikes": 17.0}, {"year": 1973, "AttackType": "Facility Attack", "SuccessfulStrikes": 36.0}, {"year": 1974, "AttackType": "Facility Attack", "SuccessfulStrikes": 39.0}, {"year": 1975, "AttackType": "Facility Attack", "SuccessfulStrikes": 64.0}, {"year": 1976, "AttackType": "Facility Attack", "SuccessfulStrikes": 111.0}, {"year": 1977, "AttackType": "Facility Attack", "SuccessfulStrikes": 162.0}, {"year": 1978, "AttackType": "Facility Attack", "SuccessfulStrikes": 172.0}, {"year": 1979, "AttackType": "Facility Attack", "SuccessfulStrikes": 185.0}, {"year": 1980, "AttackType": "Facility Attack", "SuccessfulStrikes": 160.0}, {"year": 1981, "AttackType": "Facility Attack", "SuccessfulStrikes": 142.0}, {"year": 1982, "AttackType": "Facility Attack", "SuccessfulStrikes": 140.0}, {"year": 1983, "AttackType": "Facility Attack", "SuccessfulStrikes": 130.0}, {"year": 1984, "AttackType": "Facility Attack", "SuccessfulStrikes": 155.0}, {"year": 1985, "AttackType": "Facility Attack", "SuccessfulStrikes": 134.0}, {"year": 1986, "AttackType": "Facility Attack", "SuccessfulStrikes": 132.0}, {"year": 1987, "AttackType": "Facility Attack", "SuccessfulStrikes": 97.0}, {"year": 1988, "AttackType": "Facility Attack", "SuccessfulStrikes": 125.0}, {"year": 1989, "AttackType": "Facility Attack", "SuccessfulStrikes": 226.0}, {"year": 1990, "AttackType": "Facility Attack", "SuccessfulStrikes": 181.0}, {"year": 1991, "AttackType": "Facility Attack", "SuccessfulStrikes": 301.0}, {"year": 1992, "AttackType": "Facility Attack", "SuccessfulStrikes": 435.0}, {"year": 1994, "AttackType": "Facility Attack", "SuccessfulStrikes": 173.0}, {"year": 1995, "AttackType": "Facility Attack", "SuccessfulStrikes": 280.0}, {"year": 1996, "AttackType": "Facility Attack", "SuccessfulStrikes": 205.0}, {"year": 1997, "AttackType": "Facility Attack", "SuccessfulStrikes": 133.0}, {"year": 1998, "AttackType": "Facility Attack", "SuccessfulStrikes": 53.0}, {"year": 1999, "AttackType": "Facility Attack", "SuccessfulStrikes": 106.0}, {"year": 2000, "AttackType": "Facility Attack", "SuccessfulStrikes": 106.0}, {"year": 2001, "AttackType": "Facility Attack", "SuccessfulStrikes": 137.0}, {"year": 2002, "AttackType": "Facility Attack", "SuccessfulStrikes": 44.0}, {"year": 2003, "AttackType": "Facility Attack", "SuccessfulStrikes": 83.0}, {"year": 2004, "AttackType": "Facility Attack", "SuccessfulStrikes": 31.0}, {"year": 2005, "AttackType": "Facility Attack", "SuccessfulStrikes": 47.0}, {"year": 2006, "AttackType": "Facility Attack", "SuccessfulStrikes": 104.0}, {"year": 2007, "AttackType": "Facility Attack", "SuccessfulStrikes": 111.0}, {"year": 2008, "AttackType": "Facility Attack", "SuccessfulStrikes": 271.0}, {"year": 2009, "AttackType": "Facility Attack", "SuccessfulStrikes": 340.0}, {"year": 2010, "AttackType": "Facility Attack", "SuccessfulStrikes": 280.0}, {"year": 2011, "AttackType": "Facility Attack", "SuccessfulStrikes": 241.0}, {"year": 2012, "AttackType": "Facility Attack", "SuccessfulStrikes": 300.0}, {"year": 2013, "AttackType": "Facility Attack", "SuccessfulStrikes": 540.0}, {"year": 2014, "AttackType": "Facility Attack", "SuccessfulStrikes": 742.0}, {"year": 2015, "AttackType": "Facility Attack", "SuccessfulStrikes": 674.0}, {"year": 2016, "AttackType": "Facility Attack", "SuccessfulStrikes": 673.0}, {"year": 2017, "AttackType": "Facility Attack", "SuccessfulStrikes": 726.0}, {"year": 1970, "AttackType": "Hijacking", "SuccessfulStrikes": 8.0}, {"year": 1971, "AttackType": "Hijacking", "SuccessfulStrikes": 4.0}, {"year": 1972, "AttackType": "Hijacking", "SuccessfulStrikes": 11.0}, {"year": 1973, "AttackType": "Hijacking", "SuccessfulStrikes": 7.0}, {"year": 1974, "AttackType": "Hijacking", "SuccessfulStrikes": 3.0}, {"year": 1975, "AttackType": "Hijacking", "SuccessfulStrikes": 1.0}, {"year": 1976, "AttackType": "Hijacking", "SuccessfulStrikes": 4.0}, {"year": 1977, "AttackType": "Hijacking", "SuccessfulStrikes": 7.0}, {"year": 1978, "AttackType": "Hijacking", "SuccessfulStrikes": null}, {"year": 1979, "AttackType": "Hijacking", "SuccessfulStrikes": 9.0}, {"year": 1980, "AttackType": "Hijacking", "SuccessfulStrikes": 11.0}, {"year": 1981, "AttackType": "Hijacking", "SuccessfulStrikes": 18.0}, {"year": 1982, "AttackType": "Hijacking", "SuccessfulStrikes": 8.0}, {"year": 1983, "AttackType": "Hijacking", "SuccessfulStrikes": 8.0}, {"year": 1984, "AttackType": "Hijacking", "SuccessfulStrikes": 17.0}, {"year": 1985, "AttackType": "Hijacking", "SuccessfulStrikes": 15.0}, {"year": 1986, "AttackType": "Hijacking", "SuccessfulStrikes": 4.0}, {"year": 1987, "AttackType": "Hijacking", "SuccessfulStrikes": 2.0}, {"year": 1988, "AttackType": "Hijacking", "SuccessfulStrikes": 9.0}, {"year": 1989, "AttackType": "Hijacking", "SuccessfulStrikes": 10.0}, {"year": 1990, "AttackType": "Hijacking", "SuccessfulStrikes": 7.0}, {"year": 1991, "AttackType": "Hijacking", "SuccessfulStrikes": 22.0}, {"year": 1992, "AttackType": "Hijacking", "SuccessfulStrikes": 19.0}, {"year": 1994, "AttackType": "Hijacking", "SuccessfulStrikes": 30.0}, {"year": 1995, "AttackType": "Hijacking", "SuccessfulStrikes": 23.0}, {"year": 1996, "AttackType": "Hijacking", "SuccessfulStrikes": 19.0}, {"year": 1997, "AttackType": "Hijacking", "SuccessfulStrikes": 12.0}, {"year": 1998, "AttackType": "Hijacking", "SuccessfulStrikes": 3.0}, {"year": 1999, "AttackType": "Hijacking", "SuccessfulStrikes": 5.0}, {"year": 2000, "AttackType": "Hijacking", "SuccessfulStrikes": 5.0}, {"year": 2001, "AttackType": "Hijacking", "SuccessfulStrikes": 11.0}, {"year": 2002, "AttackType": "Hijacking", "SuccessfulStrikes": 3.0}, {"year": 2003, "AttackType": "Hijacking", "SuccessfulStrikes": 2.0}, {"year": 2004, "AttackType": "Hijacking", "SuccessfulStrikes": 1.0}, {"year": 2005, "AttackType": "Hijacking", "SuccessfulStrikes": 2.0}, {"year": 2006, "AttackType": "Hijacking", "SuccessfulStrikes": 3.0}, {"year": 2007, "AttackType": "Hijacking", "SuccessfulStrikes": 6.0}, {"year": 2008, "AttackType": "Hijacking", "SuccessfulStrikes": 16.0}, {"year": 2009, "AttackType": "Hijacking", "SuccessfulStrikes": 23.0}, {"year": 2010, "AttackType": "Hijacking", "SuccessfulStrikes": 11.0}, {"year": 2011, "AttackType": "Hijacking", "SuccessfulStrikes": 7.0}, {"year": 2012, "AttackType": "Hijacking", "SuccessfulStrikes": 3.0}, {"year": 2013, "AttackType": "Hijacking", "SuccessfulStrikes": 16.0}, {"year": 2014, "AttackType": "Hijacking", "SuccessfulStrikes": 44.0}, {"year": 2015, "AttackType": "Hijacking", "SuccessfulStrikes": 35.0}, {"year": 2016, "AttackType": "Hijacking", "SuccessfulStrikes": 42.0}, {"year": 2017, "AttackType": "Hijacking", "SuccessfulStrikes": 53.0}, {"year": 1970, "AttackType": "Kidnapping", "SuccessfulStrikes": 36.0}, {"year": 1971, "AttackType": "Kidnapping", "SuccessfulStrikes": 17.0}, {"year": 1972, "AttackType": "Kidnapping", "SuccessfulStrikes": 20.0}, {"year": 1973, "AttackType": "Kidnapping", "SuccessfulStrikes": 47.0}, {"year": 1974, "AttackType": "Kidnapping", "SuccessfulStrikes": 42.0}, {"year": 1975, "AttackType": "Kidnapping", "SuccessfulStrikes": 39.0}, {"year": 1976, "AttackType": "Kidnapping", "SuccessfulStrikes": 49.0}, {"year": 1977, "AttackType": "Kidnapping", "SuccessfulStrikes": 78.0}, {"year": 1978, "AttackType": "Kidnapping", "SuccessfulStrikes": 134.0}, {"year": 1979, "AttackType": "Kidnapping", "SuccessfulStrikes": 210.0}, {"year": 1980, "AttackType": "Kidnapping", "SuccessfulStrikes": 180.0}, {"year": 1981, "AttackType": "Kidnapping", "SuccessfulStrikes": 149.0}, {"year": 1982, "AttackType": "Kidnapping", "SuccessfulStrikes": 149.0}, {"year": 1983, "AttackType": "Kidnapping", "SuccessfulStrikes": 147.0}, {"year": 1984, "AttackType": "Kidnapping", "SuccessfulStrikes": 105.0}, {"year": 1985, "AttackType": "Kidnapping", "SuccessfulStrikes": 169.0}, {"year": 1986, "AttackType": "Kidnapping", "SuccessfulStrikes": 122.0}, {"year": 1987, "AttackType": "Kidnapping", "SuccessfulStrikes": 125.0}, {"year": 1988, "AttackType": "Kidnapping", "SuccessfulStrikes": 123.0}, {"year": 1989, "AttackType": "Kidnapping", "SuccessfulStrikes": 144.0}, {"year": 1990, "AttackType": "Kidnapping", "SuccessfulStrikes": 180.0}, {"year": 1991, "AttackType": "Kidnapping", "SuccessfulStrikes": 231.0}, {"year": 1992, "AttackType": "Kidnapping", "SuccessfulStrikes": 158.0}, {"year": 1994, "AttackType": "Kidnapping", "SuccessfulStrikes": 214.0}, {"year": 1995, "AttackType": "Kidnapping", "SuccessfulStrikes": 149.0}, {"year": 1996, "AttackType": "Kidnapping", "SuccessfulStrikes": 163.0}, {"year": 1997, "AttackType": "Kidnapping", "SuccessfulStrikes": 299.0}, {"year": 1998, "AttackType": "Kidnapping", "SuccessfulStrikes": 43.0}, {"year": 1999, "AttackType": "Kidnapping", "SuccessfulStrikes": 120.0}, {"year": 2000, "AttackType": "Kidnapping", "SuccessfulStrikes": 125.0}, {"year": 2001, "AttackType": "Kidnapping", "SuccessfulStrikes": 147.0}, {"year": 2002, "AttackType": "Kidnapping", "SuccessfulStrikes": 82.0}, {"year": 2003, "AttackType": "Kidnapping", "SuccessfulStrikes": 47.0}, {"year": 2004, "AttackType": "Kidnapping", "SuccessfulStrikes": 80.0}, {"year": 2005, "AttackType": "Kidnapping", "SuccessfulStrikes": 118.0}, {"year": 2006, "AttackType": "Kidnapping", "SuccessfulStrikes": 205.0}, {"year": 2007, "AttackType": "Kidnapping", "SuccessfulStrikes": 228.0}, {"year": 2008, "AttackType": "Kidnapping", "SuccessfulStrikes": 383.0}, {"year": 2009, "AttackType": "Kidnapping", "SuccessfulStrikes": 279.0}, {"year": 2010, "AttackType": "Kidnapping", "SuccessfulStrikes": 397.0}, {"year": 2011, "AttackType": "Kidnapping", "SuccessfulStrikes": 363.0}, {"year": 2012, "AttackType": "Kidnapping", "SuccessfulStrikes": 366.0}, {"year": 2013, "AttackType": "Kidnapping", "SuccessfulStrikes": 637.0}, {"year": 2014, "AttackType": "Kidnapping", "SuccessfulStrikes": 1414.0}, {"year": 2015, "AttackType": "Kidnapping", "SuccessfulStrikes": 1266.0}, {"year": 2016, "AttackType": "Kidnapping", "SuccessfulStrikes": 1169.0}, {"year": 2017, "AttackType": "Kidnapping", "SuccessfulStrikes": 942.0}, {"year": 1970, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 2.0}, {"year": 1971, "AttackType": "Unarmed Assault", "SuccessfulStrikes": null}, {"year": 1972, "AttackType": "Unarmed Assault", "SuccessfulStrikes": null}, {"year": 1973, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 3.0}, {"year": 1974, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 2.0}, {"year": 1975, "AttackType": "Unarmed Assault", "SuccessfulStrikes": null}, {"year": 1976, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 2.0}, {"year": 1977, "AttackType": "Unarmed Assault", "SuccessfulStrikes": null}, {"year": 1978, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 5.0}, {"year": 1979, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 6.0}, {"year": 1980, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 2.0}, {"year": 1981, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 1.0}, {"year": 1982, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 3.0}, {"year": 1983, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 2.0}, {"year": 1984, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 4.0}, {"year": 1985, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 3.0}, {"year": 1986, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 5.0}, {"year": 1987, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 3.0}, {"year": 1988, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 5.0}, {"year": 1989, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 6.0}, {"year": 1990, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 5.0}, {"year": 1991, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 13.0}, {"year": 1992, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 45.0}, {"year": 1994, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 60.0}, {"year": 1995, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 103.0}, {"year": 1996, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 23.0}, {"year": 1997, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 24.0}, {"year": 1998, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 6.0}, {"year": 1999, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 18.0}, {"year": 2000, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 15.0}, {"year": 2001, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 30.0}, {"year": 2002, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 7.0}, {"year": 2003, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 8.0}, {"year": 2004, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 4.0}, {"year": 2005, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 5.0}, {"year": 2006, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 15.0}, {"year": 2007, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 5.0}, {"year": 2008, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 25.0}, {"year": 2009, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 19.0}, {"year": 2010, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 18.0}, {"year": 2011, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 19.0}, {"year": 2012, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 27.0}, {"year": 2013, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 33.0}, {"year": 2014, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 49.0}, {"year": 2015, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 83.0}, {"year": 2016, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 69.0}, {"year": 2017, "AttackType": "Unarmed Assault", "SuccessfulStrikes": 97.0}, {"year": 1970, "AttackType": "Unknown", "SuccessfulStrikes": 4.0}, {"year": 1971, "AttackType": "Unknown", "SuccessfulStrikes": 3.0}, {"year": 1972, "AttackType": "Unknown", "SuccessfulStrikes": 1.0}, {"year": 1973, "AttackType": "Unknown", "SuccessfulStrikes": 0.0}, {"year": 1974, "AttackType": "Unknown", "SuccessfulStrikes": 1.0}, {"year": 1975, "AttackType": "Unknown", "SuccessfulStrikes": 3.0}, {"year": 1976, "AttackType": "Unknown", "SuccessfulStrikes": 5.0}, {"year": 1977, "AttackType": "Unknown", "SuccessfulStrikes": 12.0}, {"year": 1978, "AttackType": "Unknown", "SuccessfulStrikes": 51.0}, {"year": 1979, "AttackType": "Unknown", "SuccessfulStrikes": 190.0}, {"year": 1980, "AttackType": "Unknown", "SuccessfulStrikes": 89.0}, {"year": 1981, "AttackType": "Unknown", "SuccessfulStrikes": 68.0}, {"year": 1982, "AttackType": "Unknown", "SuccessfulStrikes": 70.0}, {"year": 1983, "AttackType": "Unknown", "SuccessfulStrikes": 103.0}, {"year": 1984, "AttackType": "Unknown", "SuccessfulStrikes": 147.0}, {"year": 1985, "AttackType": "Unknown", "SuccessfulStrikes": 130.0}, {"year": 1986, "AttackType": "Unknown", "SuccessfulStrikes": 106.0}, {"year": 1987, "AttackType": "Unknown", "SuccessfulStrikes": 152.0}, {"year": 1988, "AttackType": "Unknown", "SuccessfulStrikes": 38.0}, {"year": 1989, "AttackType": "Unknown", "SuccessfulStrikes": 17.0}, {"year": 1990, "AttackType": "Unknown", "SuccessfulStrikes": 11.0}, {"year": 1991, "AttackType": "Unknown", "SuccessfulStrikes": 61.0}, {"year": 1992, "AttackType": "Unknown", "SuccessfulStrikes": 180.0}, {"year": 1994, "AttackType": "Unknown", "SuccessfulStrikes": 189.0}, {"year": 1995, "AttackType": "Unknown", "SuccessfulStrikes": 213.0}, {"year": 1996, "AttackType": "Unknown", "SuccessfulStrikes": 275.0}, {"year": 1997, "AttackType": "Unknown", "SuccessfulStrikes": 335.0}, {"year": 1998, "AttackType": "Unknown", "SuccessfulStrikes": 23.0}, {"year": 1999, "AttackType": "Unknown", "SuccessfulStrikes": 34.0}, {"year": 2000, "AttackType": "Unknown", "SuccessfulStrikes": 43.0}, {"year": 2001, "AttackType": "Unknown", "SuccessfulStrikes": 42.0}, {"year": 2002, "AttackType": "Unknown", "SuccessfulStrikes": 24.0}, {"year": 2003, "AttackType": "Unknown", "SuccessfulStrikes": 27.0}, {"year": 2004, "AttackType": "Unknown", "SuccessfulStrikes": 26.0}, {"year": 2005, "AttackType": "Unknown", "SuccessfulStrikes": 37.0}, {"year": 2006, "AttackType": "Unknown", "SuccessfulStrikes": 39.0}, {"year": 2007, "AttackType": "Unknown", "SuccessfulStrikes": 30.0}, {"year": 2008, "AttackType": "Unknown", "SuccessfulStrikes": 99.0}, {"year": 2009, "AttackType": "Unknown", "SuccessfulStrikes": 130.0}, {"year": 2010, "AttackType": "Unknown", "SuccessfulStrikes": 104.0}, {"year": 2011, "AttackType": "Unknown", "SuccessfulStrikes": 108.0}, {"year": 2012, "AttackType": "Unknown", "SuccessfulStrikes": 174.0}, {"year": 2013, "AttackType": "Unknown", "SuccessfulStrikes": 231.0}, {"year": 2014, "AttackType": "Unknown", "SuccessfulStrikes": 733.0}, {"year": 2015, "AttackType": "Unknown", "SuccessfulStrikes": 639.0}, {"year": 2016, "AttackType": "Unknown", "SuccessfulStrikes": 524.0}, {"year": 2017, "AttackType": "Unknown", "SuccessfulStrikes": 494.0}]}};
+              var embedOpt = {"mode": "vega-lite"};
+
+              function showError(el, error){
+                  el.innerHTML = ('<div class="error" style="color:red;">'
+                                  + '<p>JavaScript Error: ' + error.message + '</p>'
+                                  + "<p>This usually means there's a typo in your chart specification. "
+                                  + "See the javascript console for the full traceback.</p>"
+                                  + '</div>');
+                  throw error;
+              }
+              const el = document.getElementById('vis');
+              vegaEmbed("#vis", spec, embedOpt)
+                .catch(error => showError(el, error));
+        
+          </script>
+          
+        </div>
+    </div>
+  
+    <div id="text" style='padding: 1px; width: 900px; word-break: break-all; word-wrap: break-word;'>
+
+<p>GENERAL INFORMATION</p>
+<p>Module Code: B9DA103</p>
+<p>Module Title: B9DA103 Data Mining</p>
+<p>Lecturer(s)Name: Terri Hoare</p>
+<p>Lecturer(s) Contact  email: terri.hoare@dbs.ie</p>
+<p></p>
+<p>Group A - Tuesday 10-12 Friday 11-1 Exam Revision</p>
+<p></p>
+<p>Group D [Yugandhar PV 10506582, Poonam Dhoot 10399137] - Tuesday 1-3  Wednesday 3-5  Exam Revision (26 students)</p>
+<p></p>
+<p>Group B [Ashish Sinha 10394112] - Tuesday 3-5   Friday 3-5  Exam Revision</p>
+<p></p>
+<p>Group C [Ashish Bharadwaj 10396445] - Wednesday 9-11 Friday 1-3  Exam Revision (20 students)</p>
+<p>Past Exam Paper Repository</p>
+<p></p>
+<p>Quality Assurance Handbook</p>
+<p>Policies and Procedures for students and lecturers</p>
+
+    </div>         
+          
+    
+
+</body>
+
+</html>
