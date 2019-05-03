@@ -4,12 +4,30 @@
 <head>
     <style>
         #text {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px; */
+            left: 30px;
+            right: 30px;
+            /* overflow-y:scroll */
+        }
+        
+        #vis {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px;
+          right: 0px; */
+            /* overflow-y:scroll */
+        }
+        
+        #main {
             position: fixed;
-            height: 600px;
-            width: 1200px;
+            height: 630px;
             bottom: 10px;
-            right: 300px;
-            overflow-y: hidden;
+            right: 150px;
+            overflow-y: scroll;
         }
     </style>
     <meta charset="utf-8" />
@@ -196,18 +214,19 @@
         });
     </script>
 
-    <div id="text" style='padding: 1px; width: 1000px; right: 150px; word-wrap: break-word;'>
+    <div id="main">
+        <div id="text" style='padding: 1px; width: 1000px; right: 150px; word-wrap: break-word;'>
 
-        <p style="font-size:160%;">Terrorism has been one of the biggest threats to the international peace and security in the world today which every country is working on to evade it. The global terrorism database is a dataset which holds the details of the terrorist attacks
-            that has occurred during the period of 1970 to 2017 across the globe. There have been 170,000 terrorist events that have taken place across the globe since 1970 to 2017. The different type of events recorded includes more than 83,000 bombing,
-            18000+ assassinations and more than 11,000 kidnapping. Global terrorism database unlike many other event databases, the GTD includes systematic data on domestic as well as transnational and international terrorist incidents that have occurred
-            during this time period and now includes more than 180,000 cases. For each GTD incident, information is available on the date and location of the incident, the weapons used and nature of the target, the number of casualties, and--when identifiable--the
-            group or individual responsible. Statistical information contained in the Global Terrorism Database is based on reports from a variety of open media sources. Information is not added to the GTD unless and until we have determined the sources
-            are credible. Users should not infer any additional actions or results beyond what is presented in a GTD entry and specifically, users should not infer an individual associated with a particular incident was tried and convicted of terrorism
-            or any other criminal offense. If new documentation about an event becomes available, an entry may be modified, as necessary and appropriate. The National Consortium for the Study of Terrorism and Responses to Terrorism (START) makes the GTD
-            available via this online interface in an effort to increase understanding of terrorist violence so that it can be more readily studied and defeated.
-        </p>
-
+            <p style="font-size:160%;">Terrorism has been one of the biggest threats to the international peace and security in the world today which every country is working on to evade it. The global terrorism database is a dataset which holds the details of the terrorist attacks
+                that has occurred during the period of 1970 to 2017 across the globe. There have been 170,000 terrorist events that have taken place across the globe since 1970 to 2017. The different type of events recorded includes more than 83,000 bombing,
+                18000+ assassinations and more than 11,000 kidnapping. Global terrorism database unlike many other event databases, the GTD includes systematic data on domestic as well as transnational and international terrorist incidents that have occurred
+                during this time period and now includes more than 180,000 cases. For each GTD incident, information is available on the date and location of the incident, the weapons used and nature of the target, the number of casualties, and--when
+                identifiable--the group or individual responsible. Statistical information contained in the Global Terrorism Database is based on reports from a variety of open media sources. Information is not added to the GTD unless and until we have
+                determined the sources are credible. Users should not infer any additional actions or results beyond what is presented in a GTD entry and specifically, users should not infer an individual associated with a particular incident was tried
+                and convicted of terrorism or any other criminal offense. If new documentation about an event becomes available, an entry may be modified, as necessary and appropriate. The National Consortium for the Study of Terrorism and Responses to
+                Terrorism (START) makes the GTD available via this online interface in an effort to increase understanding of terrorist violence so that it can be more readily studied and defeated.
+            </p>
+        </div>
     </div>
 
 
