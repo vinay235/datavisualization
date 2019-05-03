@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #vis {
+          position: relative;
+          /* width: 400px; */
+          /* height: 500px;
+          bottom: 10px;
+          right: 0px; */
+          /* overflow-y:scroll */
+        }
+
+        #text{
+          position: relative;
+          /* width: 400px; */
+          /* height: 500px;
+          bottom: 10px; */
+          left: 30px;
+          right: 30px;
+          /* overflow-y:scroll */
+        }
+
+        #main{
+          position: fixed;
+          height: 500px;
+          bottom: 10px;
+          right: 10px;
+          overflow-y:scroll;
+        }
+      </style>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="assets/demo/demo.css" rel="stylesheet" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+          Data Visualization
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="index.html">
+              <!-- <i class="nc-icon nc-bank"></i> -->
+              <p>Introduction</p>
+            </a>
+          </li>
+          <li>
+            <a href="graph1.html">
+              <!-- <i class="nc-icon nc-diamond"></i> -->
+              <p>Visualization 1</p>
+            </a>
+          </li>
+          <li class="active" >
+            <a href="graph2.html">
+              <!-- <i class="nc-icon nc-pin-3"></i> -->
+              <p>Visualization 2</p>
+            </a>
+          </li>
+          <li>
+            <a href="graph3.html">
+              <!-- <i class="nc-icon nc-bell-55"></i> -->
+              <p>Visualization 3</p>
+            </a>
+          </li>
+          <li>
+            <a href="graph4.html">
+              <!-- <i class="nc-icon nc-single-02"></i> -->
+              <p>Visualization 4</p>
+            </a>
+          </li>
+          <li>
+            <a href="graph5.html">
+              <!-- <i class="nc-icon nc-tile-56"></i> -->
+              <p>Visualization 5</p>
+            </a>
+          </li>
+          <li>
+            <a href="graph6.html">
+              <!-- <i class="nc-icon nc-caps-small"></i> -->
+              <p>Visualization 6</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="#pablo">Heatmap of Kills vs Wounded for successful attacks in top locations</a>
+          </div>
+          </div>
+        </nav>
+      </div>
+      
+  
+  
+  
+
+   Core JS Files   
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+      demo.initChartsPages();
+    });
+  </script>
+
+
+  <!-- Graph content-->
+
+  
+  <div id="main">
+  <div id="vis" class="content" >
+      <div class="container-fluid">
+          <script>
+              var spec = {"config": {"view": {"width": 400, "height": 300}}, "vconcat": [{"layer": [{"data": {"name": "data-64cec7a16e12c0b917dcf52fc377da82"}, "mark": "rect", "encoding": {"color": {"type": "quantitative", "aggregate": "count", "legend": {"title": "Total Records"}, "scale": {"scheme": "greenblue"}}, "x": {"type": "quantitative", "bin": true, "field": "nkill"}, "y": {"type": "quantitative", "bin": true, "field": "nwound"}}}, {"data": {"name": "data-64cec7a16e12c0b917dcf52fc377da82"}, "mark": "point", "encoding": {"color": {"value": "grey"}, "size": {"type": "quantitative", "aggregate": "count", "legend": {"title": "Records in Selection"}}, "x": {"type": "quantitative", "bin": true, "field": "nkill"}, "y": {"type": "quantitative", "bin": true, "field": "nwound"}}, "transform": [{"filter": {"selection": "selector017"}}]}]}, {"data": {"name": "data-64cec7a16e12c0b917dcf52fc377da82"}, "mark": "bar", "encoding": {"color": {"condition": {"value": "steelblue", "selection": "selector017"}, "value": "grey"}, "x": {"type": "nominal", "field": "country_txt"}, "y": {"type": "quantitative", "field": "success"}}, "height": 200, "selection": {"selector017": {"type": "single", "encodings": ["x"]}}, "width": 800}], "resolve": {"legend": {"color": "independent", "size": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-64cec7a16e12c0b917dcf52fc377da82": [{"country_txt": "Sierra Leone", "success": 98, "nkill": 840, "nwound": 122}, {"country_txt": "Mexico", "success": 479, "nkill": 780, "nwound": 683}, {"country_txt": "Saudi Arabia", "success": 319, "nkill": 672, "nwound": 1666}, {"country_txt": "Cambodia", "success": 243, "nkill": 543, "nwound": 786}, {"country_txt": "France", "success": 2481, "nkill": 534, "nwound": 2516}, {"country_txt": "Argentina", "success": 714, "nkill": 490, "nwound": 755}, {"country_txt": "Italy", "success": 1392, "nkill": 420, "nwound": 1291}, {"country_txt": "Canada", "success": 75, "nkill": 365, "nwound": 146}, {"country_txt": "Tunisia", "success": 97, "nkill": 351, "nwound": 433}, {"country_txt": "Haiti", "success": 185, "nkill": 336, "nwound": 300}, {"country_txt": "Greece", "success": 1126, "nkill": 325, "nwound": 733}, {"country_txt": "Senegal", "success": 116, "nkill": 325, "nwound": 323}, {"country_txt": "Zaire", "success": 45, "nkill": 324, "nwound": 211}, {"country_txt": "Tajikistan", "success": 180, "nkill": 307, "nwound": 1109}, {"country_txt": "Honduras", "success": 286, "nkill": 307, "nwound": 240}, {"country_txt": "Morocco", "success": 33, "nkill": 292, "nwound": 200}, {"country_txt": "Georgia", "success": 192, "nkill": 278, "nwound": 392}, {"country_txt": "Djibouti", "success": 22, "nkill": 274, "nwound": 162}, {"country_txt": "Ivory Coast", "success": 67, "nkill": 268, "nwound": 171}, {"country_txt": "Azerbaijan", "success": 44, "nkill": 258, "nwound": 187}, {"country_txt": "Croatia", "success": 55, "nkill": 248, "nwound": 73}, {"country_txt": "Chile", "success": 2221, "nkill": 228, "nwound": 755}, {"country_txt": "Venezuela", "success": 246, "nkill": 227, "nwound": 247}, {"country_txt": "Namibia", "success": 147, "nkill": 220, "nwound": 406}, {"country_txt": "Rhodesia", "success": 80, "nkill": 217, "nwound": 158}, {"country_txt": "Guinea", "success": 21, "nkill": 213, "nwound": 57}, {"country_txt": "Brazil", "success": 237, "nkill": 203, "nwound": 160}, {"country_txt": "Republic of the Congo", "success": 35, "nkill": 182, "nwound": 54}, {"country_txt": "Liberia", "success": 32, "nkill": 177, "nwound": 36}, {"country_txt": "Zimbabwe", "success": 96, "nkill": 154, "nwound": 222}, {"country_txt": "Malaysia", "success": 86, "nkill": 152, "nwound": 101}, {"country_txt": "Burkina Faso", "success": 45, "nkill": 134, "nwound": 219}, {"country_txt": "Jordan", "success": 84, "nkill": 133, "nwound": 260}, {"country_txt": "United Arab Emirates", "success": 17, "nkill": 123, "nwound": 27}, {"country_txt": "Yugoslavia", "success": 179, "nkill": 119, "nwound": 281}, {"country_txt": "Ireland", "success": 139, "nkill": 117, "nwound": 31}, {"country_txt": "West Germany (FRG)", "success": 465, "nkill": 97, "nwound": 862}, {"country_txt": "Soviet Union", "success": 67, "nkill": 96, "nwound": 150}, {"country_txt": "Germany", "success": 659, "nkill": 84, "nwound": 683}, {"country_txt": "Kosovo", "success": 172, "nkill": 83, "nwound": 365}]}};
+              var embedOpt = {"mode": "vega-lite"};
+        
+              function showError(el2, error){
+                  el2.innerHTML = ('<div class="error" style="color:red;">'
+                                  + '<p>JavaScript Error: ' + error.message + '</p>'
+                                  + "<p>This usually means there's a typo in your chart specification. "
+                                  + "See the javascript console for the full traceback.</p>"
+                                  + '</div>');
+                  throw error;
+              }
+              const el2 = document.getElementById('vis2');
+              vegaEmbed("#vis2", spec, embedOpt)
+                .catch(error => showError(el2, error));
+          </script>
+          
+        </div>
+    </div>
+  
+    <div id="text" style='padding: 1px; width: 900px; word-break: break-all; word-wrap: break-word;'>
+
+<p>GENERAL INFORMATION</p>
+<p>Module Code: B9DA103</p>
+<p>Module Title: B9DA103 Data Mining</p>
+<p>Lecturer(s)Name: Terri Hoare</p>
+<p>Lecturer(s) Contact  email: terri.hoare@dbs.ie</p>
+<p></p>
+<p>Group A - Tuesday 10-12 Friday 11-1 Exam Revision</p>
+<p></p>
+<p>Group D [Yugandhar PV 10506582, Poonam Dhoot 10399137] - Tuesday 1-3  Wednesday 3-5  Exam Revision (26 students)</p>
+<p></p>
+<p>Group B [Ashish Sinha 10394112] - Tuesday 3-5   Friday 3-5  Exam Revision</p>
+<p></p>
+<p>Group C [Ashish Bharadwaj 10396445] - Wednesday 9-11 Friday 1-3  Exam Revision (20 students)</p>
+<p>Past Exam Paper Repository</p>
+<p></p>
+<p>Quality Assurance Handbook</p>
+<p>Policies and Procedures for students and lecturers</p>
+
+    </div>         
+          
+    
+
+</body>
+
+</html>
