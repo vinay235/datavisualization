@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #vis {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px;
+          right: 0px; */
+            /* overflow-y:scroll */
+        }
+        
+        #text {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px; */
+            left: 30px;
+            right: 30px;
+            /* overflow-y:scroll */
+        }
+        
+        #main {
+            position: fixed;
+            height: 620px;
+            width: 1200px;
+            bottom: 30px;
+            right: 30px;
+            overflow-y: scroll;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/demo/demo.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@3"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+            <div class="logo">
+                Data Visualization
+            </div>
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                  <li class="active">
+                      <a href="index.html">
+                          <p>Introduction</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart1.html">
+                          <!-- <i class="nc-icon nc-diamond"></i> -->
+                          <p>Visualization 1</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart2.html">
+                          <!-- <i class="nc-icon nc-pin-3"></i> -->
+                          <p>Visualization 2</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart3.html">
+                          <!-- <i class="nc-icon nc-bell-55"></i> -->
+                          <p>Visualization 3</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart4.html">
+                          <!-- <i class="nc-icon nc-single-02"></i> -->
+                          <p>Visualization 4</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart5.html">
+                          <!-- <i class="nc-icon nc-tile-56"></i> -->
+                          <p>Visualization 5</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart6.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 6</p>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="#pablo">Heatmap of Kills vs Wounded for successful attacks in top locations</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+
+
+        Core JS Files
+        <script src="../assets/js/core/jquery.min.js"></script>
+        <script src="../assets/js/core/popper.min.js"></script>
+        <script src="../assets/js/core/bootstrap.min.js"></script>
+        <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!--  Google Maps Plugin    -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        <!-- Chart JS -->
+        <script src="../assets/js/plugins/chartjs.min.js"></script>
+        <!--  Notifications Plugin    -->
+        <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+        <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+        <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+        <script src="../assets/demo/demo.js"></script>
+        <script>
+            $(document).ready(function() {
+                // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+                demo.initChartsPages();
+            });
+        </script>
+
+
+        <!-- Graph content-->
+
+
+        <div id="main">
+            <div id="vis" class="content">
+                <div class="container-fluid">
+                     <script>
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-8c5b499eb049d53da545d857afcab8c6"}, "mark": {"type": "circle", "size": 60}, "encoding": {"color": {"type": "nominal", "field": "Winner"}, "tooltip": [{"type": "nominal", "field": "Winner"}, {"type": "quantitative", "field": "FullTimeHomeGoals"}, {"type": "quantitative", "field": "FullTimeAwayGoals"}], "x": {"type": "quantitative", "field": "FullTimeHomeGoals"}, "y": {"type": "quantitative", "field": "FullTimeAwayGoals"}}, "height": 500, "selection": {"selector019": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json", "datasets": {"data-8c5b499eb049d53da545d857afcab8c6": [{"Winner": "Arsenal", "FullTimeHomeGoals": 920, "FullTimeAwayGoals": 649}, {"Winner": "Aston Villa", "FullTimeHomeGoals": 422, "FullTimeAwayGoals": 329}, {"Winner": "Barnsley", "FullTimeHomeGoals": 14, "FullTimeAwayGoals": 9}, {"Winner": "Birmingham", "FullTimeHomeGoals": 120, "FullTimeAwayGoals": 64}, {"Winner": "Blackburn", "FullTimeHomeGoals": 341, "FullTimeAwayGoals": 215}, {"Winner": "Blackpool", "FullTimeHomeGoals": 14, "FullTimeAwayGoals": 18}, {"Winner": "Bolton", "FullTimeHomeGoals": 246, "FullTimeAwayGoals": 176}, {"Winner": "Bournemouth", "FullTimeHomeGoals": 60, "FullTimeAwayGoals": 42}, {"Winner": "Bradford", "FullTimeHomeGoals": 23, "FullTimeAwayGoals": 10}, {"Winner": "Brighton", "FullTimeHomeGoals": 15, "FullTimeAwayGoals": 8}, {"Winner": "Burnley", "FullTimeHomeGoals": 57, "FullTimeAwayGoals": 38}, {"Winner": "Cardiff", "FullTimeHomeGoals": 11, "FullTimeAwayGoals": 7}, {"Winner": "Charlton", "FullTimeHomeGoals": 143, "FullTimeAwayGoals": 93}, {"Winner": "Chelsea", "FullTimeHomeGoals": 861, "FullTimeAwayGoals": 632}, {"Winner": "Coventry", "FullTimeHomeGoals": 107, "FullTimeAwayGoals": 65}, {"Winner": "Crystal Palace", "FullTimeHomeGoals": 113, "FullTimeAwayGoals": 88}, {"Winner": "Derby", "FullTimeHomeGoals": 110, "FullTimeAwayGoals": 62}, {"Winner": "Everton", "FullTimeHomeGoals": 555, "FullTimeAwayGoals": 326}, {"Winner": "Fulham", "FullTimeHomeGoals": 259, "FullTimeAwayGoals": 135}, {"Winner": "Huddersfield", "FullTimeHomeGoals": 13, "FullTimeAwayGoals": 11}, {"Winner": "Hull", "FullTimeHomeGoals": 65, "FullTimeAwayGoals": 42}, {"Winner": "Ipswich", "FullTimeHomeGoals": 44, "FullTimeAwayGoals": 31}, {"Winner": "Leeds", "FullTimeHomeGoals": 229, "FullTimeAwayGoals": 183}, {"Winner": "Leicester", "FullTimeHomeGoals": 211, "FullTimeAwayGoals": 159}, {"Winner": "Liverpool", "FullTimeHomeGoals": 826, "FullTimeAwayGoals": 588}, {"Winner": "Man City", "FullTimeHomeGoals": 628, "FullTimeAwayGoals": 428}, {"Winner": "Man United", "FullTimeHomeGoals": 998, "FullTimeAwayGoals": 728}, {"Winner": "Middlesboro", "FullTimeHomeGoals": 26, "FullTimeAwayGoals": 12}, {"Winner": "Middlesbrough", "FullTimeHomeGoals": 246, "FullTimeAwayGoals": 155}, {"Winner": "Newcastle", "FullTimeHomeGoals": 539, "FullTimeAwayGoals": 324}, {"Winner": "Norwich", "FullTimeHomeGoals": 82, "FullTimeAwayGoals": 49}, {"Winner": "Nott'm Forest", "FullTimeHomeGoals": 42, "FullTimeAwayGoals": 33}, {"Winner": "Portsmouth", "FullTimeHomeGoals": 148, "FullTimeAwayGoals": 95}, {"Winner": "QPR", "FullTimeHomeGoals": 51, "FullTimeAwayGoals": 36}, {"Winner": "Reading", "FullTimeHomeGoals": 54, "FullTimeAwayGoals": 35}, {"Winner": "Sheffield United", "FullTimeHomeGoals": 13, "FullTimeAwayGoals": 6}, {"Winner": "Sheffield Weds", "FullTimeHomeGoals": 100, "FullTimeAwayGoals": 69}, {"Winner": "Southampton", "FullTimeHomeGoals": 324, "FullTimeAwayGoals": 194}, {"Winner": "Stoke", "FullTimeHomeGoals": 182, "FullTimeAwayGoals": 102}, {"Winner": "Sunderland", "FullTimeHomeGoals": 226, "FullTimeAwayGoals": 166}, {"Winner": "Swansea", "FullTimeHomeGoals": 134, "FullTimeAwayGoals": 89}, {"Winner": "Tottenham", "FullTimeHomeGoals": 682, "FullTimeAwayGoals": 482}, {"Winner": "Watford", "FullTimeHomeGoals": 65, "FullTimeAwayGoals": 48}, {"Winner": "West Brom", "FullTimeHomeGoals": 174, "FullTimeAwayGoals": 107}, {"Winner": "West Ham", "FullTimeHomeGoals": 419, "FullTimeAwayGoals": 265}, {"Winner": "Wigan", "FullTimeHomeGoals": 112, "FullTimeAwayGoals": 100}, {"Winner": "Wimbledon", "FullTimeHomeGoals": 84, "FullTimeAwayGoals": 67}, {"Winner": "Wolves", "FullTimeHomeGoals": 54, "FullTimeAwayGoals": 33}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+
+  </script>
+
+                </div>
+            </div>
+
+            <div id="text" style='padding: 1px; width: 900px; word-wrap: break-word;'>
+
+
+                <p style="font-size:160%;">
+                    This heatmap shows us the data of people killed and wounded during the successful attacks steered in different locations. We can clearly see that the maximum attacks executed is in France and which makes the number of kills and injuries high in France.
+                    This raises a curious question which is the “Motive” simply means the reason for doing something. Now this reason may be anything, personal grudges, revolt against government, religious sentiments, etc.
+                </p>
+
+            </div>
+
+
+
+</body>
+
+</html>

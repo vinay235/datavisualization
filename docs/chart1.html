@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #vis {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px;
+          right: 0px; */
+            /* overflow-y:scroll */
+        }
+        
+        #text {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px; */
+            left: 30px;
+            right: 30px;
+            /* overflow-y:scroll */
+        }
+        
+        #main {
+            position: fixed;
+            height: 630px;
+            bottom: 10px;
+            right: 150px;
+            overflow-y: scroll;
+        }
+        /* #sd {
+          position: static;
+        } */
+    </style>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/demo/demo.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@3"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div id="sd" class="sidebar" data-color="white" data-active-color="danger">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+            <div class="logo">
+                Data Visualization
+            </div>
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                  <li class="active">
+                      <a href="index.html">
+                          <p>Introduction</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart1.html">
+                          <!-- <i class="nc-icon nc-diamond"></i> -->
+                          <p>Visualization 1</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart2.html">
+                          <!-- <i class="nc-icon nc-pin-3"></i> -->
+                          <p>Visualization 2</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart3.html">
+                          <!-- <i class="nc-icon nc-bell-55"></i> -->
+                          <p>Visualization 3</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart4.html">
+                          <!-- <i class="nc-icon nc-single-02"></i> -->
+                          <p>Visualization 4</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart5.html">
+                          <!-- <i class="nc-icon nc-tile-56"></i> -->
+                          <p>Visualization 5</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart6.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 6</p>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="#pablo">Successful Strikes per year over different Attack types</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+
+
+        Core JS Files
+        <script src="../assets/js/core/jquery.min.js"></script>
+        <script src="../assets/js/core/popper.min.js"></script>
+        <script src="../assets/js/core/bootstrap.min.js"></script>
+        <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!--  Google Maps Plugin    -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        <!-- Chart JS -->
+        <script src="../assets/js/plugins/chartjs.min.js"></script>
+        <!--  Notifications Plugin    -->
+        <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+        <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+        <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+        <script src="../assets/demo/demo.js"></script>
+        <script>
+            $(document).ready(function() {
+                // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+                demo.initChartsPages();
+            });
+        </script>
+
+
+        <!-- Graph content-->
+
+
+        <div id="main">
+            <div id="vis" class="content">
+                <div class="container-fluid">
+                    
+					 <script>
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": {"type": "line", "interpolate": "basis"}, "encoding": {"color": {"type": "nominal", "field": "FullTimeResult"}, "x": {"type": "nominal", "field": "Season"}, "y": {"type": "quantitative", "field": "count"}}}, {"mark": "point", "encoding": {"opacity": {"value": 0}, "x": {"type": "nominal", "field": "Season"}}, "selection": {"selector018": {"type": "single", "nearest": true, "on": "mouseover", "fields": ["Season"], "empty": "none"}}}, {"mark": "point", "encoding": {"color": {"type": "nominal", "field": "FullTimeResult"}, "opacity": {"value": 0, "condition": {"value": 1, "selection": "selector018"}}, "x": {"type": "nominal", "field": "Season"}, "y": {"type": "quantitative", "field": "count"}}}, {"mark": {"type": "rule", "color": "gray"}, "encoding": {"x": {"type": "nominal", "field": "Season"}}, "transform": [{"filter": {"selection": "selector018"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "FullTimeResult"}, "text": {"value": " ", "condition": {"type": "quantitative", "field": "count", "selection": "selector018"}}, "x": {"type": "nominal", "field": "Season"}, "y": {"type": "quantitative", "field": "count"}}}], "data": {"name": "data-cf5fcf0980d5a604c1525e6dfbd62601"}, "height": 500, "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json", "datasets": {"data-cf5fcf0980d5a604c1525e6dfbd62601": [{"Season": "1995-96", "FullTimeResult": "Away", "count": 96}, {"Season": "1995-96", "FullTimeResult": "Draw", "count": 98}, {"Season": "1995-96", "FullTimeResult": "Home", "count": 186}, {"Season": "1996-97", "FullTimeResult": "Away", "count": 99}, {"Season": "1996-97", "FullTimeResult": "Draw", "count": 119}, {"Season": "1996-97", "FullTimeResult": "Home", "count": 162}, {"Season": "1997-98", "FullTimeResult": "Away", "count": 101}, {"Season": "1997-98", "FullTimeResult": "Draw", "count": 95}, {"Season": "1997-98", "FullTimeResult": "Home", "count": 184}, {"Season": "1998-99", "FullTimeResult": "Away", "count": 96}, {"Season": "1998-99", "FullTimeResult": "Draw", "count": 115}, {"Season": "1998-99", "FullTimeResult": "Home", "count": 169}, {"Season": "1999-00", "FullTimeResult": "Away", "count": 101}, {"Season": "1999-00", "FullTimeResult": "Draw", "count": 92}, {"Season": "1999-00", "FullTimeResult": "Home", "count": 187}, {"Season": "2000-01", "FullTimeResult": "Away", "count": 95}, {"Season": "2000-01", "FullTimeResult": "Draw", "count": 101}, {"Season": "2000-01", "FullTimeResult": "Home", "count": 184}, {"Season": "2001-02", "FullTimeResult": "Away", "count": 114}, {"Season": "2001-02", "FullTimeResult": "Draw", "count": 101}, {"Season": "2001-02", "FullTimeResult": "Home", "count": 165}, {"Season": "2002-03", "FullTimeResult": "Away", "count": 103}, {"Season": "2002-03", "FullTimeResult": "Draw", "count": 90}, {"Season": "2002-03", "FullTimeResult": "Home", "count": 187}, {"Season": "2003-04", "FullTimeResult": "Away", "count": 105}, {"Season": "2003-04", "FullTimeResult": "Draw", "count": 108}, {"Season": "2003-04", "FullTimeResult": "Home", "count": 167}, {"Season": "2004-05", "FullTimeResult": "Away", "count": 97}, {"Season": "2004-05", "FullTimeResult": "Draw", "count": 110}, {"Season": "2004-05", "FullTimeResult": "Home", "count": 173}, {"Season": "2005-06", "FullTimeResult": "Away", "count": 111}, {"Season": "2005-06", "FullTimeResult": "Draw", "count": 77}, {"Season": "2005-06", "FullTimeResult": "Home", "count": 192}, {"Season": "2006-07", "FullTimeResult": "Away", "count": 100}, {"Season": "2006-07", "FullTimeResult": "Draw", "count": 98}, {"Season": "2006-07", "FullTimeResult": "Home", "count": 182}, {"Season": "2007-08", "FullTimeResult": "Away", "count": 104}, {"Season": "2007-08", "FullTimeResult": "Draw", "count": 100}, {"Season": "2007-08", "FullTimeResult": "Home", "count": 176}, {"Season": "2008-09", "FullTimeResult": "Away", "count": 110}, {"Season": "2008-09", "FullTimeResult": "Draw", "count": 97}, {"Season": "2008-09", "FullTimeResult": "Home", "count": 173}, {"Season": "2009-10", "FullTimeResult": "Away", "count": 91}, {"Season": "2009-10", "FullTimeResult": "Draw", "count": 96}, {"Season": "2009-10", "FullTimeResult": "Home", "count": 193}, {"Season": "2010-11", "FullTimeResult": "Away", "count": 90}, {"Season": "2010-11", "FullTimeResult": "Draw", "count": 111}, {"Season": "2010-11", "FullTimeResult": "Home", "count": 179}, {"Season": "2011-12", "FullTimeResult": "Away", "count": 116}, {"Season": "2011-12", "FullTimeResult": "Draw", "count": 93}, {"Season": "2011-12", "FullTimeResult": "Home", "count": 171}, {"Season": "2012-13", "FullTimeResult": "Away", "count": 106}, {"Season": "2012-13", "FullTimeResult": "Draw", "count": 108}, {"Season": "2012-13", "FullTimeResult": "Home", "count": 166}, {"Season": "2013-14", "FullTimeResult": "Away", "count": 123}, {"Season": "2013-14", "FullTimeResult": "Draw", "count": 78}, {"Season": "2013-14", "FullTimeResult": "Home", "count": 179}, {"Season": "2014-15", "FullTimeResult": "Away", "count": 115}, {"Season": "2014-15", "FullTimeResult": "Draw", "count": 93}, {"Season": "2014-15", "FullTimeResult": "Home", "count": 172}, {"Season": "2015-16", "FullTimeResult": "Away", "count": 116}, {"Season": "2015-16", "FullTimeResult": "Draw", "count": 107}, {"Season": "2015-16", "FullTimeResult": "Home", "count": 157}, {"Season": "2016-17", "FullTimeResult": "Away", "count": 109}, {"Season": "2016-17", "FullTimeResult": "Draw", "count": 84}, {"Season": "2016-17", "FullTimeResult": "Home", "count": 187}, {"Season": "2017-18", "FullTimeResult": "Away", "count": 108}, {"Season": "2017-18", "FullTimeResult": "Draw", "count": 99}, {"Season": "2017-18", "FullTimeResult": "Home", "count": 173}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+
+  </script>
+
+                </div>
+            </div>
+
+            <div id="text" style='padding: 1px; width: 900px; word-wrap: break-word;'>
+
+
+                <p style="font-size:160%;">
+                    This graph represents the total number of successful attacks that have taken place every year and the different types of attacks. The different types of attacks that have taken place are Armed Assault, Assassination, Bombing, Facility attack, Hijacking,
+                    Kidnapping, Unarmed assault. The graph clearly shows the number of bombing and armed assault have gone high significantly when compared to other attacks. As we are aware that the literacy rate is better now compared to 1970. So, it
+                    makes it evident that as the technology & knowledge increase among the people is being used in a negative manner.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
