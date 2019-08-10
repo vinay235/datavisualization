@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #vis {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px;
+          right: 0px; */
+            /* overflow-y:scroll */
+        }
+        
+        #text {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px; */
+            left: 30px;
+            right: 30px;
+            /* overflow-y:scroll */
+        }
+        
+        #main {
+            position: fixed;
+            height: 630px;
+            bottom: 10px;
+            right: 150px;
+            overflow-y: scroll;
+        }
+        /* #sd {
+          position: static;
+        } */
+    </style>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/demo/demo.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@3"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div id="sd" class="sidebar" data-color="white" data-active-color="danger">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+            <div class="logo">
+                Data Visualization
+            </div>
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                  <li class="active">
+                      <a href="index.html">
+                          <p>Introduction</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart1.html">
+                          <!-- <i class="nc-icon nc-diamond"></i> -->
+                          <p>Visualization 1</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart2.html">
+                          <!-- <i class="nc-icon nc-pin-3"></i> -->
+                          <p>Visualization 2</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart3.html">
+                          <!-- <i class="nc-icon nc-bell-55"></i> -->
+                          <p>Visualization 3</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart4.html">
+                          <!-- <i class="nc-icon nc-single-02"></i> -->
+                          <p>Visualization 4</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart5.html">
+                          <!-- <i class="nc-icon nc-tile-56"></i> -->
+                          <p>Visualization 5</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart6.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 6</p>
+                      </a>
+                  </li>
+				  <li>
+                      <a href="chart7.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 7</p>
+                      </a>
+                  </li>
+				  <li>
+                      <a href="chart8.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 8</p>
+                      </a>
+                  </li>
+				  <li>
+                      <a href="chart9.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 9</p>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="#pablo">Successful Strikes per year over different Attack types</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+
+
+        Core JS Files
+        <script src="../assets/js/core/jquery.min.js"></script>
+        <script src="../assets/js/core/popper.min.js"></script>
+        <script src="../assets/js/core/bootstrap.min.js"></script>
+        <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!--  Google Maps Plugin    -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        <!-- Chart JS -->
+        <script src="../assets/js/plugins/chartjs.min.js"></script>
+        <!--  Notifications Plugin    -->
+        <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+        <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+        <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+        <script src="../assets/demo/demo.js"></script>
+        <script>
+            $(document).ready(function() {
+                // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+                demo.initChartsPages();
+            });
+        </script>
+
+
+        <!-- Graph content-->
+
+
+        <div id="main">
+            <div id="vis" class="content">
+                <div class="container-fluid">
+                    
+  <script>
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-eaeef28e5ae4b40cfc263989d96b0aef"}, "mark": "point", "encoding": {"color": {"value": "lightgray", "condition": {"type": "nominal", "field": "HomeTeam", "selection": "selector041"}}, "tooltip": [{"type": "quantitative", "field": "Year"}, {"type": "quantitative", "field": "count"}], "x": {"type": "nominal", "field": "Year"}, "y": {"type": "quantitative", "field": "count"}}, "selection": {"selector041": {"type": "interval"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json", "datasets": {"data-eaeef28e5ae4b40cfc263989d96b0aef": [{"Year": 1995, "HomeTeam": "Arsenal", "count": 6}, {"Year": 1995, "HomeTeam": "Chelsea", "count": 4}, {"Year": 1995, "HomeTeam": "Liverpool", "count": 7}, {"Year": 1995, "HomeTeam": "Man City", "count": 3}, {"Year": 1995, "HomeTeam": "Man United", "count": 8}, {"Year": 1995, "HomeTeam": "Tottenham", "count": 4}, {"Year": 1996, "HomeTeam": "Arsenal", "count": 10}, {"Year": 1996, "HomeTeam": "Chelsea", "count": 7}, {"Year": 1996, "HomeTeam": "Liverpool", "count": 13}, {"Year": 1996, "HomeTeam": "Man City", "count": 4}, {"Year": 1996, "HomeTeam": "Man United", "count": 14}, {"Year": 1996, "HomeTeam": "Tottenham", "count": 9}, {"Year": 1997, "HomeTeam": "Arsenal", "count": 10}, {"Year": 1997, "HomeTeam": "Chelsea", "count": 11}, {"Year": 1997, "HomeTeam": "Liverpool", "count": 11}, {"Year": 1997, "HomeTeam": "Man United", "count": 14}, {"Year": 1997, "HomeTeam": "Tottenham", "count": 8}, {"Year": 1998, "HomeTeam": "Arsenal", "count": 15}, {"Year": 1998, "HomeTeam": "Chelsea", "count": 13}, {"Year": 1998, "HomeTeam": "Liverpool", "count": 11}, {"Year": 1998, "HomeTeam": "Man United", "count": 11}, {"Year": 1998, "HomeTeam": "Tottenham", "count": 8}, {"Year": 1999, "HomeTeam": "Arsenal", "count": 16}, {"Year": 1999, "HomeTeam": "Chelsea", "count": 12}, {"Year": 1999, "HomeTeam": "Liverpool", "count": 13}, {"Year": 1999, "HomeTeam": "Man United", "count": 15}, {"Year": 1999, "HomeTeam": "Tottenham", "count": 8}, {"Year": 2000, "HomeTeam": "Arsenal", "count": 15}, {"Year": 2000, "HomeTeam": "Chelsea", "count": 13}, {"Year": 2000, "HomeTeam": "Liverpool", "count": 11}, {"Year": 2000, "HomeTeam": "Man City", "count": 3}, {"Year": 2000, "HomeTeam": "Man United", "count": 15}, {"Year": 2000, "HomeTeam": "Tottenham", "count": 11}, {"Year": 2001, "HomeTeam": "Arsenal", "count": 11}, {"Year": 2001, "HomeTeam": "Chelsea", "count": 10}, {"Year": 2001, "HomeTeam": "Liverpool", "count": 10}, {"Year": 2001, "HomeTeam": "Man City", "count": 1}, {"Year": 2001, "HomeTeam": "Man United", "count": 13}, {"Year": 2001, "HomeTeam": "Tottenham", "count": 9}, {"Year": 2002, "HomeTeam": "Arsenal", "count": 16}, {"Year": 2002, "HomeTeam": "Chelsea", "count": 13}, {"Year": 2002, "HomeTeam": "Liverpool", "count": 12}, {"Year": 2002, "HomeTeam": "Man City", "count": 5}, {"Year": 2002, "HomeTeam": "Man United", "count": 14}, {"Year": 2002, "HomeTeam": "Tottenham", "count": 11}, {"Year": 2003, "HomeTeam": "Arsenal", "count": 13}, {"Year": 2003, "HomeTeam": "Chelsea", "count": 13}, {"Year": 2003, "HomeTeam": "Liverpool", "count": 8}, {"Year": 2003, "HomeTeam": "Man City", "count": 6}, {"Year": 2003, "HomeTeam": "Man United", "count": 15}, {"Year": 2003, "HomeTeam": "Tottenham", "count": 7}, {"Year": 2004, "HomeTeam": "Arsenal", "count": 14}, {"Year": 2004, "HomeTeam": "Chelsea", "count": 13}, {"Year": 2004, "HomeTeam": "Liverpool", "count": 14}, {"Year": 2004, "HomeTeam": "Man City", "count": 6}, {"Year": 2004, "HomeTeam": "Man United", "count": 11}, {"Year": 2004, "HomeTeam": "Tottenham", "count": 8}, {"Year": 2005, "HomeTeam": "Arsenal", "count": 15}, {"Year": 2005, "HomeTeam": "Chelsea", "count": 17}, {"Year": 2005, "HomeTeam": "Liverpool", "count": 12}, {"Year": 2005, "HomeTeam": "Man City", "count": 10}, {"Year": 2005, "HomeTeam": "Man United", "count": 11}, {"Year": 2005, "HomeTeam": "Tottenham", "count": 13}, {"Year": 2006, "HomeTeam": "Arsenal", "count": 11}, {"Year": 2006, "HomeTeam": "Chelsea", "count": 14}, {"Year": 2006, "HomeTeam": "Liverpool", "count": 15}, {"Year": 2006, "HomeTeam": "Man City", "count": 8}, {"Year": 2006, "HomeTeam": "Man United", "count": 16}, {"Year": 2006, "HomeTeam": "Tottenham", "count": 13}, {"Year": 2007, "HomeTeam": "Arsenal", "count": 16}, {"Year": 2007, "HomeTeam": "Chelsea", "count": 11}, {"Year": 2007, "HomeTeam": "Liverpool", "count": 10}, {"Year": 2007, "HomeTeam": "Man City", "count": 10}, {"Year": 2007, "HomeTeam": "Man United", "count": 15}, {"Year": 2007, "HomeTeam": "Tottenham", "count": 9}, {"Year": 2008, "HomeTeam": "Arsenal", "count": 11}, {"Year": 2008, "HomeTeam": "Chelsea", "count": 10}, {"Year": 2008, "HomeTeam": "Liverpool", "count": 14}, {"Year": 2008, "HomeTeam": "Man City", "count": 7}, {"Year": 2008, "HomeTeam": "Man United", "count": 15}, {"Year": 2008, "HomeTeam": "Tottenham", "count": 6}, {"Year": 2009, "HomeTeam": "Arsenal", "count": 13}, {"Year": 2009, "HomeTeam": "Chelsea", "count": 16}, {"Year": 2009, "HomeTeam": "Liverpool", "count": 12}, {"Year": 2009, "HomeTeam": "Man City", "count": 14}, {"Year": 2009, "HomeTeam": "Man United", "count": 17}, {"Year": 2009, "HomeTeam": "Tottenham", "count": 14}, {"Year": 2010, "HomeTeam": "Arsenal", "count": 13}, {"Year": 2010, "HomeTeam": "Chelsea", "count": 15}, {"Year": 2010, "HomeTeam": "Liverpool", "count": 12}, {"Year": 2010, "HomeTeam": "Man City", "count": 11}, {"Year": 2010, "HomeTeam": "Man United", "count": 17}, {"Year": 2010, "HomeTeam": "Tottenham", "count": 12}, {"Year": 2011, "HomeTeam": "Arsenal", "count": 12}, {"Year": 2011, "HomeTeam": "Chelsea", "count": 13}, {"Year": 2011, "HomeTeam": "Liverpool", "count": 11}, {"Year": 2011, "HomeTeam": "Man City", "count": 17}, {"Year": 2011, "HomeTeam": "Man United", "count": 16}, {"Year": 2011, "HomeTeam": "Tottenham", "count": 10}, {"Year": 2012, "HomeTeam": "Arsenal", "count": 10}, {"Year": 2012, "HomeTeam": "Chelsea", "count": 11}, {"Year": 2012, "HomeTeam": "Liverpool", "count": 6}, {"Year": 2012, "HomeTeam": "Man City", "count": 16}, {"Year": 2012, "HomeTeam": "Man United", "count": 17}, {"Year": 2012, "HomeTeam": "Tottenham", "count": 12}, {"Year": 2013, "HomeTeam": "Arsenal", "count": 12}, {"Year": 2013, "HomeTeam": "Chelsea", "count": 16}, {"Year": 2013, "HomeTeam": "Liverpool", "count": 13}, {"Year": 2013, "HomeTeam": "Man City", "count": 17}, {"Year": 2013, "HomeTeam": "Man United", "count": 11}, {"Year": 2013, "HomeTeam": "Tottenham", "count": 10}, {"Year": 2014, "HomeTeam": "Arsenal", "count": 12}, {"Year": 2014, "HomeTeam": "Chelsea", "count": 15}, {"Year": 2014, "HomeTeam": "Liverpool", "count": 12}, {"Year": 2014, "HomeTeam": "Man City", "count": 13}, {"Year": 2014, "HomeTeam": "Man United", "count": 13}, {"Year": 2014, "HomeTeam": "Tottenham", "count": 11}, {"Year": 2015, "HomeTeam": "Arsenal", "count": 13}, {"Year": 2015, "HomeTeam": "Chelsea", "count": 10}, {"Year": 2015, "HomeTeam": "Liverpool", "count": 10}, {"Year": 2015, "HomeTeam": "Man City", "count": 16}, {"Year": 2015, "HomeTeam": "Man United", "count": 10}, {"Year": 2015, "HomeTeam": "Tottenham", "count": 11}, {"Year": 2016, "HomeTeam": "Arsenal", "count": 12}, {"Year": 2016, "HomeTeam": "Chelsea", "count": 10}, {"Year": 2016, "HomeTeam": "Liverpool", "count": 11}, {"Year": 2016, "HomeTeam": "Man City", "count": 9}, {"Year": 2016, "HomeTeam": "Man United", "count": 13}, {"Year": 2016, "HomeTeam": "Tottenham", "count": 12}, {"Year": 2017, "HomeTeam": "Arsenal", "count": 16}, {"Year": 2017, "HomeTeam": "Chelsea", "count": 16}, {"Year": 2017, "HomeTeam": "Liverpool", "count": 11}, {"Year": 2017, "HomeTeam": "Man City", "count": 15}, {"Year": 2017, "HomeTeam": "Man United", "count": 11}, {"Year": 2017, "HomeTeam": "Tottenham", "count": 16}, {"Year": 2018, "HomeTeam": "Arsenal", "count": 7}, {"Year": 2018, "HomeTeam": "Chelsea", "count": 3}, {"Year": 2018, "HomeTeam": "Liverpool", "count": 6}, {"Year": 2018, "HomeTeam": "Man City", "count": 7}, {"Year": 2018, "HomeTeam": "Man United", "count": 7}, {"Year": 2018, "HomeTeam": "Tottenham", "count": 7}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+
+  </script>
+
+                </div>
+            </div>
+
+            <div id="text" style='padding: 1px; width: 900px; word-wrap: break-word;'>
+
+
+                <p style="font-size:160%;">
+                    This graph represents the total number of successful attacks that have taken place every year and the different types of attacks. The different types of attacks that have taken place are Armed Assault, Assassination, Bombing, Facility attack, Hijacking,
+                    Kidnapping, Unarmed assault. The graph clearly shows the number of bombing and armed assault have gone high significantly when compared to other attacks. As we are aware that the literacy rate is better now compared to 1970. So, it
+                    makes it evident that as the technology & knowledge increase among the people is being used in a negative manner.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

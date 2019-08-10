@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #vis {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px;
+          right: 0px; */
+            /* overflow-y:scroll */
+        }
+        
+        #text {
+            position: relative;
+            /* width: 400px; */
+            /* height: 500px;
+          bottom: 10px; */
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            /* overflow-y:scroll */
+        }
+        
+        #main {
+            position: fixed;
+            height: 600px;
+            width: 1200px;
+            bottom: 10px;
+            right: 10px;
+            overflow-y: scroll;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/demo/demo.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@3"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	
+	<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.3.4.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+            <div class="logo">
+                Data Visualization
+            </div>
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+                  <li class="active">
+                      <a href="index.html">
+                          <p>Introduction</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart1.html">
+                          <!-- <i class="nc-icon nc-diamond"></i> -->
+                          <p>Visualization 1</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart2.html">
+                          <!-- <i class="nc-icon nc-pin-3"></i> -->
+                          <p>Visualization 2</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart3.html">
+                          <!-- <i class="nc-icon nc-bell-55"></i> -->
+                          <p>Visualization 3</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart4.html">
+                          <!-- <i class="nc-icon nc-single-02"></i> -->
+                          <p>Visualization 4</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart5.html">
+                          <!-- <i class="nc-icon nc-tile-56"></i> -->
+                          <p>Visualization 5</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="chart6.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 6</p>
+                      </a>
+                  </li>
+				  <li>
+                      <a href="chart7.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 7</p>
+                      </a>
+                  </li>
+				  <li>
+                      <a href="chart8.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 8</p>
+                      </a>
+                  </li>
+				  <li>
+                      <a href="chart9.html">
+                          <!-- <i class="nc-icon nc-caps-small"></i> -->
+                          <p>Visualization 9</p>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" href="#pablo">The Big 4 terrorist attack in Asia</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <script src="../assets/js/core/jquery.min.js"></script>
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chart JS -->
+    <script src="../assets/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="../assets/demo/demo.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+            demo.initChartsPages();
+        });
+    </script>
+
+
+    <!-- Graph content-->
+
+
+    <div id="main">
+         <div id="vis" class="content">
+                <div class="container-fluid">
+                    
+					 <div class="bk-root" id="83257ae6-fb0f-402e-b75f-803def240411" data-root-id="2243"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="2754">
+          {"b79ae82e-25ae-4df5-99fb-6bdc74d3903d":{"roots":{"references":[{"attributes":{"below":[{"id":"2254","type":"CategoricalAxis"}],"center":[{"id":"2257","type":"Grid"},{"id":"2262","type":"Grid"},{"id":"2294","type":"Legend"}],"left":[{"id":"2258","type":"LinearAxis"}],"renderers":[{"id":"2279","type":"GlyphRenderer"},{"id":"2284","type":"GlyphRenderer"},{"id":"2299","type":"GlyphRenderer"},{"id":"2304","type":"GlyphRenderer"}],"title":{"id":"2244","type":"Title"},"toolbar":{"id":"2269","type":"Toolbar"},"x_range":{"id":"2246","type":"FactorRange"},"x_scale":{"id":"2250","type":"CategoricalScale"},"y_range":{"id":"2248","type":"DataRange1d"},"y_scale":{"id":"2252","type":"LinearScale"}},"id":"2243","subtype":"Figure","type":"Plot"},{"attributes":{"fill_color":{"value":"red"},"line_color":{"value":"red"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"2302","type":"Circle"},{"attributes":{},"id":"2268","type":"HelpTool"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"2303","type":"Circle"},{"attributes":{},"id":"2264","type":"WheelZoomTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"2263","type":"PanTool"},{"id":"2264","type":"WheelZoomTool"},{"id":"2265","type":"BoxZoomTool"},{"id":"2266","type":"SaveTool"},{"id":"2267","type":"ResetTool"},{"id":"2268","type":"HelpTool"}]},"id":"2269","type":"Toolbar"},{"attributes":{"data_source":{"id":"2301","type":"ColumnDataSource"},"glyph":{"id":"2302","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2303","type":"Circle"},"selection_glyph":null,"view":{"id":"2305","type":"CDSView"}},"id":"2304","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"2278","type":"Line"},{"attributes":{},"id":"2255","type":"CategoricalTicker"},{"attributes":{"source":{"id":"2301","type":"ColumnDataSource"}},"id":"2305","type":"CDSView"},{"attributes":{"source":{"id":"2276","type":"ColumnDataSource"}},"id":"2280","type":"CDSView"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAA4D8AAAAAAAD4PwAAAAAAAARAAAAAAAAADEAAAAAAAAASQAAAAAAAABZAAAAAAAAAGkAAAAAAAAAeQAAAAAAAACFAAAAAAAAAI0AAAAAAAAAlQAAAAAAAACdAAAAAAAAAKUAAAAAAAAArQAAAAAAAAC1AAAAAAAAAL0AAAAAAAIAwQAAAAAAAgDFAAAAAAACAMkAAAAAAAIAzQAAAAAAAgDRAAAAAAACANUAAAAAAAIA2QAAAAAAAgDdAAAAAAACAOEA=","dtype":"float64","shape":[25]},"y":[20,19,18,15,19,20,24,18,16,17,25,20,21,25,18,17,14,16,26,18,16,22,21]},"selected":{"id":"2316","type":"Selection"},"selection_policy":{"id":"2315","type":"UnionRenderers"}},"id":"2296","type":"ColumnDataSource"},{"attributes":{},"id":"2267","type":"ResetTool"},{"attributes":{},"id":"2313","type":"UnionRenderers"},{"attributes":{"overlay":{"id":"2293","type":"BoxAnnotation"}},"id":"2265","type":"BoxZoomTool"},{"attributes":{"fill_color":{"value":"blue"},"line_color":{"value":"blue"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"2282","type":"Circle"},{"attributes":{},"id":"2314","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"2283","type":"Circle"},{"attributes":{},"id":"2252","type":"LinearScale"},{"attributes":{},"id":"2315","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"2281","type":"ColumnDataSource"},"glyph":{"id":"2282","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2283","type":"Circle"},"selection_glyph":null,"view":{"id":"2285","type":"CDSView"}},"id":"2284","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"2276","type":"ColumnDataSource"},"glyph":{"id":"2277","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2278","type":"Line"},"selection_glyph":null,"view":{"id":"2280","type":"CDSView"}},"id":"2279","type":"GlyphRenderer"},{"attributes":{},"id":"2316","type":"Selection"},{"attributes":{"source":{"id":"2281","type":"ColumnDataSource"}},"id":"2285","type":"CDSView"},{"attributes":{},"id":"2266","type":"SaveTool"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAA4D8AAAAAAAD4PwAAAAAAAARAAAAAAAAADEAAAAAAAAASQAAAAAAAABZAAAAAAAAAGkAAAAAAAAAeQAAAAAAAACFAAAAAAAAAI0AAAAAAAAAlQAAAAAAAACdAAAAAAAAAKUAAAAAAAAArQAAAAAAAAC1AAAAAAAAAL0AAAAAAAIAwQAAAAAAAgDFAAAAAAACAMkAAAAAAAIAzQAAAAAAAgDRAAAAAAACANUAAAAAAAIA2QAAAAAAAgDdAAAAAAACAOEA=","dtype":"float64","shape":[25]},"y":[9,0,0,0,0,8,0,15,9,13,13,11,15,15,18,21,28,23,27,24,19,23,32]},"selected":{"id":"2292","type":"Selection"},"selection_policy":{"id":"2291","type":"UnionRenderers"}},"id":"2276","type":"ColumnDataSource"},{"attributes":{},"id":"2400","type":"UnionRenderers"},{"attributes":{"callback":null},"id":"2248","type":"DataRange1d"},{"attributes":{"label":{"value":"Chelsea"},"renderers":[{"id":"2304","type":"GlyphRenderer"}]},"id":"2318","type":"LegendItem"},{"attributes":{},"id":"2288","type":"CategoricalTickFormatter"},{"attributes":{"formatter":{"id":"2288","type":"CategoricalTickFormatter"},"major_label_orientation":"vertical","ticker":{"id":"2255","type":"CategoricalTicker"}},"id":"2254","type":"CategoricalAxis"},{"attributes":{},"id":"2291","type":"UnionRenderers"},{"attributes":{},"id":"2290","type":"BasicTickFormatter"},{"attributes":{"formatter":{"id":"2290","type":"BasicTickFormatter"},"ticker":{"id":"2259","type":"BasicTicker"}},"id":"2258","type":"LinearAxis"},{"attributes":{"line_color":"blue","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"2277","type":"Line"},{"attributes":{},"id":"2401","type":"Selection"},{"attributes":{"label":{"value":"Man City"},"renderers":[{"id":"2284","type":"GlyphRenderer"}]},"id":"2295","type":"LegendItem"},{"attributes":{},"id":"2263","type":"PanTool"},{"attributes":{},"id":"2259","type":"BasicTicker"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"2293","type":"BoxAnnotation"},{"attributes":{"line_color":"red","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"2297","type":"Line"},{"attributes":{},"id":"2292","type":"Selection"},{"attributes":{"dimension":1,"ticker":{"id":"2259","type":"BasicTicker"}},"id":"2262","type":"Grid"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"2298","type":"Line"},{"attributes":{"ticker":{"id":"2255","type":"CategoricalTicker"}},"id":"2257","type":"Grid"},{"attributes":{"callback":null,"factors":["1995-96","1996-97","1997-98","1998-99","1999-00","2000-01","2001-02","2002-03","2003-04","2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18"]},"id":"2246","type":"FactorRange"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAA4D8AAAAAAAD4PwAAAAAAAARAAAAAAAAADEAAAAAAAAASQAAAAAAAABZAAAAAAAAAGkAAAAAAAAAeQAAAAAAAACFAAAAAAAAAI0AAAAAAAAAlQAAAAAAAACdAAAAAAAAAKUAAAAAAAAArQAAAAAAAAC1AAAAAAAAAL0AAAAAAAIAwQAAAAAAAgDFAAAAAAACAMkAAAAAAAIAzQAAAAAAAgDRAAAAAAACANUAAAAAAAIA2QAAAAAAAgDdAAAAAAACAOEA=","dtype":"float64","shape":[25]},"y":[20,19,18,15,19,20,24,18,16,17,25,20,21,25,18,17,14,16,26,18,16,22,21]},"selected":{"id":"2401","type":"Selection"},"selection_policy":{"id":"2400","type":"UnionRenderers"}},"id":"2301","type":"ColumnDataSource"},{"attributes":{},"id":"2250","type":"CategoricalScale"},{"attributes":{"items":[{"id":"2295","type":"LegendItem"},{"id":"2318","type":"LegendItem"}]},"id":"2294","type":"Legend"},{"attributes":{"data_source":{"id":"2296","type":"ColumnDataSource"},"glyph":{"id":"2297","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2298","type":"Line"},"selection_glyph":null,"view":{"id":"2300","type":"CDSView"}},"id":"2299","type":"GlyphRenderer"},{"attributes":{"text":"Manchester City and Liverpool Score over the years"},"id":"2244","type":"Title"},{"attributes":{"source":{"id":"2296","type":"ColumnDataSource"}},"id":"2300","type":"CDSView"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAA4D8AAAAAAAD4PwAAAAAAAARAAAAAAAAADEAAAAAAAAASQAAAAAAAABZAAAAAAAAAGkAAAAAAAAAeQAAAAAAAACFAAAAAAAAAI0AAAAAAAAAlQAAAAAAAACdAAAAAAAAAKUAAAAAAAAArQAAAAAAAAC1AAAAAAAAAL0AAAAAAAIAwQAAAAAAAgDFAAAAAAACAMkAAAAAAAIAzQAAAAAAAgDRAAAAAAACANUAAAAAAAIA2QAAAAAAAgDdAAAAAAACAOEA=","dtype":"float64","shape":[25]},"y":[9,0,0,0,0,8,0,15,9,13,13,11,15,15,18,21,28,23,27,24,19,23,32]},"selected":{"id":"2314","type":"Selection"},"selection_policy":{"id":"2313","type":"UnionRenderers"}},"id":"2281","type":"ColumnDataSource"}],"root_ids":["2243"]},"title":"Bokeh Application","version":"1.3.4"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('2754').textContent;
+                  var render_items = [{"docid":"b79ae82e-25ae-4df5-99fb-6bdc74d3903d","roots":{"2243":"83257ae6-fb0f-402e-b75f-803def240411"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+
+                </div>
+            </div>
+
+        <div id="text" style='padding: 1px; width: 900px; word-wrap: break-word;'>
+
+
+            <p style="font-size:160%;">
+                The graph shows the top 4 countries which have had the maximum terror attacks. Iraq, Pakistan, Afghanistan and India are the countries which have had the maximum attacks. The highlight to consider here is the amount of damage caused to the economy of
+                the country because of the attacks and the impact post attack. The other point that triggers looking at the country with highest attacks is Iraq and this may be one of the reasons for the US sanctions on the Iraq. </p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
